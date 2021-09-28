@@ -1,0 +1,87 @@
+<!doctype HTML>
+<html lang="es">
+    <head>
+        <title>Piano.</title>
+        <meta charset="utf-8"/>
+        <style>
+            .key-parent .key-piano{
+                width:50px;
+                height:100px;
+                background-color:white;
+                border:2px solid black;
+                margin-right:0px;
+            }
+            #piano{
+                margin-top:4%;
+                margin-left:7%;
+                position:absolute;
+                background-color:#763300;
+            }
+            .cornetas{
+                margin-bottom:0;
+                margin-top:0;
+                
+            }
+        </style>
+    </head>
+    <body>
+        <table id="piano">
+            <thead>
+                <tr>
+                    <td>
+                        <table>
+                            <tr>
+                                <button type="button"></button>
+                            </tr>
+                        </table>
+                        <div id="container-cornecta">
+                            <p class="cornetas"><!--Generado por JavaScript.--></p>
+                            <p class="cornetas"><!--Generado por JavaScript.--></span>
+                            <p class="cornetas"><!--Generado por JavaScript.--></p>
+                        </div>
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <table id="keys-container">
+                            <!--Generado por JavaScript-->
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <script>
+            window.onload=function(){
+                const WIDTH=50;
+                const HEIGHT=100;
+                const MARGIN_RIGHT=screen.availWidth-(screen.availWidth>>2);
+                var grand_father=document.getElementById("keys-container");
+                var father=document.createElement("tr");
+                var conectas=document.getElementsByClassName("cornetas");
+                grand_father.appendChild(father);
+                father.setAttribute("class","key-parent");
+                for ( var i=0,u=1; i<49; i++,u++ ){
+                    var child=document.createElement("td");
+                    if ( u*WIDTH>MARGIN_RIGHT ){
+                        father=document.createElement("tr");
+                        grand_father.appendChild(father);
+                        father.setAttribute("class","key-parent");
+                        u=1;
+                    }
+                    father.appendChild(child);
+                    child.setAttribute("class","key-piano");
+                }
+                for ( var conecta of conectas ){
+                    for ( var i=0; i<MARGIN_RIGHT; i+=5 ){
+                        conecta.innerHTML+='-';
+                    }
+                }
+            };
+            function is_movil(){
+                return true;
+            }
+        </script>
+    </body>
+</html>
