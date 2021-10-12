@@ -11,76 +11,228 @@
                 border:2px solid black;
                 margin-right:0px;
             }
-            #piano{
-                margin-top:4%;
-                margin-left:7%;
-                position:absolute;
-                background-color:#763300;
+            #main-piano{
+                background-color:#20202f;
             }
             .cornetas{
                 margin-bottom:0;
                 margin-top:0;
                 
             }
+            .text_svg_ {
+                font-style:normal;
+                font-variant:normal;
+                font-weight:normal;
+                font-stretch:normal;
+                font-family:sans-serif;
+                font-variant-ligatures:normal;
+                font-variant-caps:normal;
+                font-variant-numeric:normal;
+                font-variant-east-asian:normal;
+                white-space:pre;
+                fill-opacity:1;
+                stroke:none;
+            }
         </style>
     </head>
     <body>
-        <table id="piano">
-            <thead>
-                <tr>
-                    <td>
-                        <table>
-                            <tr>
-                                <button type="button"></button>
-                            </tr>
-                        </table>
-                        <div id="container-cornecta">
-                            <p class="cornetas"><!--Generado por JavaScript.--></p>
-                            <p class="cornetas"><!--Generado por JavaScript.--></span>
-                            <p class="cornetas"><!--Generado por JavaScript.--></p>
-                        </div>
-                    </td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <table id="keys-container">
-                            <!--Generado por JavaScript-->
-                        </table>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <?xml version="1.0" encoding="UTF-8"?>
+        <svg xmlns="http://www.w3.org/2000/svg" width="1325" height="330px" version="1.1" id="main-piano">
+            <!--FONDO:-->
+            <rect fill="#757584" width="95vw" height="205px" x="1%" y="100px"/>
+            <!--Tecla blancas:rgb(81.176471%,84.705882%,86.27451%)-->
+            <!--Así será las teclas negras: <rect width="10%" height="30%" x="40%" y="40%" fill="rgb(14.901961%,19.607843%,21.960784%);"/>-->
+            <!--Con los botones no me quise complicar la vida y decidí usar: Inkscape.-->
+            <!--Begin Inkscape:-->
+            <!--Begin Title_type_button:-->
+            <text xml:space="preserve" style="font-size:10.6667px;line-height:1.25;inline-size:78.9761;fill:#999999;stroke-width:0.665613"
+                x="10.659509" y="21.45525" id="title_type_sound" class="text_svg_"
+                transform="matrix(1.5023755,0,-0.06436638,0.66561256,0,0)" >
+                <tspan x="10.659509" y="21.45525" id="text_title_type_sound">Type  sounds</tspan>
+            </text>
+            <!--END Title_type_button.-->
+            <!--Begin Triangle:-->
+            <ellipse style="stroke:#ff2009;stroke-width:0.768793" fill="#000"
+                cx="65.734413" cy="25.895372" rx="53.8983" ry="8.0834103" id="triangle" class="type_button"/>
+            <text xml:space="preserve" style="font-size:10.6667px;line-height:1.25;inline-size:78.9761;fill:#ffffff;stroke-width:0.665613"
+                x="10.659509" y="21.45525" id="text_triangle" class="text_svg_"
+                transform="matrix(1.5023755,0,-0.06436638,0.66561256,18.591549,13.943662)">
+                <tspan
+                    x="12" y="21.45525">triangle</tspan>
+            </text>
+            <!--END Triangle.-->
+            <!--Begin sawtooth:-->
+            <ellipse style="stroke:#ff2009;stroke-width:0.768793" fill="#000"
+                cx="65.734406" cy="45.814884" rx="53.8983" ry="8.0834103" id="sawtooth" class="type_button"/>
+            <text xml:space="preserve"style="font-size:10.6667px;line-height:1.25;inline-size:78.9761;fill:#ffffff;stroke-width:0.665613"
+                x="10.659509" y="21.45525" id="text_sawtooth" class="text_svg_"
+                transform="matrix(1.5023755,0,-0.06436638,0.66561256,15.789155,34.825883)">
+                <tspan x="10.659509" y="21.45525">sawtooth</tspan>
+            </text>
+            <!--END sawtooth.-->
+            <!--Begin square:-->
+            <ellipse style="stroke:#ff2009;stroke-width:0.768793" fill="#000"
+                cx="65.734413" cy="67.726357" rx="53.8983" ry="8.0834103" id="square" class="type_button"/>
+            <text xml:space="preserve" style="font-size:10.6667px;line-height:1.25;inline-size:78.9761;fill:#ffffff;stroke-width:0.665613"
+                x="10.659509" y="21.45525" id="text_square" class="text_svg_"
+                transform="matrix(1.5023755,0,-0.06436638,0.66561256,24.420949,54.745404)">
+                <tspan x="10.659509" y="21.45525">square</tspan>
+            </text>
+            <!--End square.-->
+            <!--Begin sine:-->
+            <ellipse style="stroke:#ff2009;stroke-width:0.768793" fill="#000"
+                cx="65.734413" cy="88.30986" rx="53.8983" ry="8.0834103" id="sine" class="type_button"/>
+            <text xml:space="preserve" style="font-size:10.6667px;line-height:1.25;inline-size:78.9761;fill:#ffffff;stroke-width:0.665613"
+                x="10.659509" y="21.45525" id="text_sine" class="text_svg_"
+                transform="matrix(1.5023755,0,-0.06436638,0.66561256,34.380711,76.656872)">
+                <tspan x="10.659509" y="21.45525">sine</tspan>
+            </text>
+            <!--END sine.-->
+            <!--Begin Title_sound_duration:-->
+            <text style="font-size:14.1089px;line-height:1.25;fill:#808080;" xml:space="preserve"
+                transform="matrix(1,0,0,0.5715693,-108.22938,-14.654066)" id="title_sound-duration" class="text_svg_">
+                <tspan x="274.22461" y="50.055571">Sound duration</tspan>
+            </text>
+            <!--End Title_sound_duration.-->
+            <!--Begin Normal:-->
+            <!--NORMAL==X1-->
+            <text style="fill:#fff;stroke:#ff2009;stroke-width:0.542631" xml:space="preserve"
+                transform="matrix(1.1364178,0,0,1.0154322,-140.21816,-20.280127)" id="text_X1" class="text_svg_">
+                <tspan x="274.22461" y="50.055571">Normal</tspan>
+            </text>
+            <ellipse style="stroke:#ff2009;stroke-width:0.542631"  fill="#444"
+                cx="244.67807" cy="25.563379" rx="7.864501" ry="6.5365324" id="X1" class="sound-duration_button"/>
+            <!--End Normal.-->
+            <!--Begin X2:-->
+            <text style="fill:#fff;stroke:#ff2009;stroke-width:0.542631" xml:space="preserve"
+                transform="matrix(1.0019012,0,0,1.0154322,-102.9692,-7.3225947)" id="text_X2" class="text_svg_">
+                <tspan x="274.22461" y="50.055571">X2</tspan>
+            </text>
+            <ellipse style="stroke:#ff2009;stroke-width:0.542631"  fill="#444"
+                cx="245.01006" cy="42.494972" rx="7.864501" ry="6.5365324" id="X2" class="sound-duration_button"/>
+            <!--End X2.-->
+            <!--Begin X4:-->
+            <text style="fill:#fff;stroke:#ff2009;stroke-width:0.542631" xml:space="preserve"
+                transform="matrix(1.0019012,0,0,1.0154322,-102.58928,11.591101)" id="text_X4" class="text_svg_">
+                <tspan x="274.22461" y="50.055571">X4</tspan>
+            </text>
+            <ellipse style="stroke:#ff2009;stroke-width:0.542631"  fill="#444"
+                cx="245.67404" cy="59.758553" rx="7.864501" ry="6.5365324" id="X4" class="sound-duration_button"/>
+            <!--End X4.-->
+            <!--Begin X6:-->
+            <text style="fill:#fff;stroke:#ff2009;stroke-width:0.542631" xml:space="preserve"
+                transform="matrix(1.0019012,0,0,1.0154322,-102.58926,28.854682)" id="text_X6" class="text_svg_">
+                <tspan x="274.22461" y="50.055571">X6</tspan>
+            </text>
+            <ellipse style="stroke:#ff2009;stroke-width:0.542631" fill="#444"
+                cx="246.33801" cy="77.686111" rx="7.864501" ry="6.5365324" id="X6" class="sound-duration_button"/>
+            <!--End X6.-->
+            <!--End Inkscape.-->
+        </svg>
         <script>
+            const HEIGHT_KEY=100;
+            const CANTIDAD_TECLA=49;
+            const TIME_NORMAL="X1";
+            var context_window_sound=new ( window.AudioContext || window.webKitAudioContext )();
+            var type_sound="triangle";
+            var id_time_note=TIME_NORMAL;
             window.onload=function(){
-                const WIDTH=50;
-                const HEIGHT=100;
-                const MARGIN_RIGHT=screen.availWidth-(screen.availWidth>>2);
-                var grand_father=document.getElementById("keys-container");
-                var father=document.createElement("tr");
-                var conectas=document.getElementsByClassName("cornetas");
-                grand_father.appendChild(father);
-                father.setAttribute("class","key-parent");
-                for ( var i=0,u=1; i<49; i++,u++ ){
-                    var child=document.createElement("td");
-                    if ( u*WIDTH>MARGIN_RIGHT ){
-                        father=document.createElement("tr");
-                        grand_father.appendChild(father);
-                        father.setAttribute("class","key-parent");
-                        u=1;
-                    }
+                let father=document.getElementById("main-piano");
+                let type_sound_buttons=document.getElementsByClassName("type_button");
+                let sound_duration_buttons=document.getElementsByClassName("sound-duration_button");
+                let y=110;
+                let key_x_inicial=16;
+                for ( let i=0,u=key_x_inicial; i<CANTIDAD_TECLA; i++,u+=31 ){
+                    let child=document.createElement("rect");
                     father.appendChild(child);
-                    child.setAttribute("class","key-piano");
-                }
-                for ( var conecta of conectas ){
-                    for ( var i=0; i<MARGIN_RIGHT; i+=5 ){
-                        conecta.innerHTML+='-';
+                    if ( u>screen.availWidth-58 ){
+                        u=++key_x_inicial;
+                        y+=HEIGHT_KEY;
                     }
+                    child.setAttribute( "class","keys" );
+                    child.setAttribute( "id","key_number_"+i );
+                    child.setAttribute( "fill","rgb(81.176471%,84.705882%,86.27451%)" );
+                    child.setAttribute( "stroke","black" );
+                    child.setAttribute( "width","29px" );
+                    child.setAttribute( "height",HEIGHT_KEY+"px" );
+                    child.setAttribute( "y",y+"px" );
+                    child.setAttribute( "x",u+"px" );
+                    child.setAttribute( "onclick","click_key(this,"+i+");" );
+                    child.setAttribute( "onmousemove","mouse_move(this);" );
+                    child.setAttribute("note",""+i);
+                    
+                    //Si deseas mas velocidad puedes agregar esta linea\|/ de codigo fuera del bucle:\|/
+                    father.innerHTML+='\n';//Esta linea de código Cumple dos funciones: 1- Actualizar la imagen svg. 2- Poner un salto de linea para que sea mas facil depurarlo en el navegador.
                 }
+                //Nota: Al ellipse le digo boton, pues para eso lo puse.
+                for ( let i=0; i<type_sound_buttons.length; i++ ){
+                    let id=type_sound_buttons[i].getAttribute("id");
+                    //Agregamos el evento al boton por medio de un attributo, NOTA: No sirve addEventListener con imagenes svg. Por lo que tienes que trabajar con el attributo directamente.
+                    type_sound_buttons[i].setAttribute("onclick","change_type_sound(this);");
+                    //Como el texto dentro del boton tiene casi el mismo id que nuestro boton, entonces aprovechamos eso y ponemos el evento de tal manera que se envie el boton y no el texto.
+                    document.getElementById("text_"+id).setAttribute("onclick","change_type_sound(document.getElementById('"+id+"'));");
+                }
+                //Para activar por defecto el boton del triangulo.
+                change_type_sound(document.getElementById("triangle"));
+                
+                for ( let i=0,is_normal=true; i<sound_duration_buttons.length; i++ ){
+                    let id=sound_duration_buttons[i].getAttribute("id");
+                    //Agregamos el evento al boton por medio de un attributo, NOTA: No sirve addEventListener con imagenes svg. Por lo que tienes que trabajar con el attributo directamente.
+                    sound_duration_buttons[i].setAttribute("onclick","change_sound_duration(this);");
+                    //Como el texto dentro del boton tiene casi el mismo id que nuestro boton, entonces aprovechamos eso y ponemos el evento de tal manera que se envie el boton y no el texto.
+                    document.getElementById("text_"+id).setAttribute("onclick","change_sound_duration(document.getElementById('"+id+"'));");
+                }
+                change_sound_duration(document.getElementById("X1"));
             };
-            function is_movil(){
-                return true;
+            function click_key(this__,number_id){
+                this__.style.height=(HEIGHT_KEY-10)+"px";
+                setTimeout( function(){
+                    this__.style.height=HEIGHT_KEY+"px";
+                },400 );
+                ///@todo Verificar con el telefono que el sonido funcione.
+                sound(parseInt(this__.getAttribute("note")),type_sound,parseInt(extrano_los_cortes_de_lista_de_python(id_time_note,1)));
+            }
+            function mouse_move(this__){
+                this__.style.height='95px';
+                setTimeout( function(){
+                    this__.style.height=HEIGHT_KEY+"px";
+                },400 );
+            }
+            function change_type_sound(this__){
+                //Desativamos el boton anterior.
+                document.getElementById(type_sound).setAttribute("fill","#000");
+                //Activamos la seleccion actual.
+                this__.setAttribute("fill","#888");
+                type_sound=this__.getAttribute("id");
+            }
+            function change_sound_duration(this__){
+                //Desactivamos al boton anterior.
+                document.getElementById(id_time_note).setAttribute("fill","#444");
+                //Activamos al actual.
+                this__.setAttribute("fill","#fff");
+                //Por ultimos actualizamos el control
+                id_time_note=this__.getAttribute("id");
+            }
+            function extrano_los_cortes_de_lista_de_python(str__,indice){
+                let str_actual="";
+                for ( let i=indice; i<str__.length; i++ ){
+                    str_actual+=str__[i];
+                }
+                return str_actual;
+            }
+            function sound(NOTE,OSC_TYPE,TIME){
+                //Creamos nuestro oscilador.
+                let osc=context_window_sound.createOscillator();
+                //Cambiamos el tipo de frecuencia.
+                osc.type=OSC_TYPE;//Admite: sine,square,sawtooth, triangle.
+                //Actualizamos la nota.
+                osc.frequency.value=NOTE;
+                //Asignamos el destino del sonido.
+                osc.connect( context_window_sound.destination );
+                //Iniciamos el sonido.
+                osc.start();
+                //Detenemos el sonido por TIME tiempo.
+                osc.stop( context_window_sound.currentTime+(TIME*0.1) );
             }
         </script>
     </body>
