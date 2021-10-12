@@ -39,7 +39,7 @@
         <?xml version="1.0" encoding="UTF-8"?>
         <svg xmlns="http://www.w3.org/2000/svg" width="1325" height="330px" version="1.1" id="main-piano">
             <!--FONDO:-->
-            <rect fill="#757584" width="95vw" height="205px" x="1%" y="100px"/>
+            <rect fill="#757584" width="1310px" height="205px" x="1%" y="100px"/>
             <!--Tecla blancas:rgb(81.176471%,84.705882%,86.27451%)-->
             <!--Así será las teclas negras: <rect width="10%" height="30%" x="40%" y="40%" fill="rgb(14.901961%,19.607843%,21.960784%);"/>-->
             <!--Con los botones no me quise complicar la vida y decidí usar: Inkscape.-->
@@ -145,7 +145,7 @@
                 for ( let i=0,u=key_x_inicial; i<CANTIDAD_TECLA; i++,u+=31 ){
                     let child=document.createElement("rect");
                     father.appendChild(child);
-                    if ( u>screen.availWidth-58 ){
+                    if ( u>1330-58 ){
                         u=++key_x_inicial;
                         y+=HEIGHT_KEY;
                     }
@@ -190,7 +190,7 @@
                     this__.style.height=HEIGHT_KEY+"px";
                 },400 );
                 ///@todo Verificar con el telefono que el sonido funcione.
-                sound(parseInt(this__.getAttribute("note")),type_sound,parseInt(extrano_los_cortes_de_lista_de_python(id_time_note,1)));
+                sound(parseInt(this__.getAttribute("note"))*10,type_sound,parseInt(extrano_los_cortes_de_lista_de_python(id_time_note,1)));
             }
             function mouse_move(this__){
                 this__.style.height='95px';
