@@ -3,6 +3,7 @@
     <head>
         <title>Piano.</title>
         <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <style>
             .key-parent .key-piano{
                 width:50px;
@@ -13,12 +14,9 @@
             }
             #main-piano{
                 background-color:#20202f;
-            }
-            .cornetas{
-                margin-bottom:0;
-                margin-top:0;
-                
-            }
+                width:100vw;
+                height:220px;/*Si se quita no pasa nada, porque con JavaScript le asigno este mismo valor y voy aumentando a medida que coloque mas fila de teclas.*/
+            }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
             .text_svg_ {
                 font-style:normal;
                 font-variant:normal;
@@ -33,13 +31,22 @@
                 fill-opacity:1;
                 stroke:none;
             }
+            .sound-duration_button,.type_button{
+                stroke:#ff2009;
+                stroke-width:0.768793;
+                
+            }
+            .keys-black{
+                z-index:1;
+            }
         </style>
     </head>
     <body>
         <?xml version="1.0" encoding="UTF-8"?>
-        <svg xmlns="http://www.w3.org/2000/svg" width="1325" height="330px" version="1.1" id="main-piano">
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="main-piano">
             <!--FONDO:-->
-            <rect fill="#757584" width="1310px" height="205px" x="1%" y="100px"/>
+            <!--@TODO ver si height:67%, es mejor que height:100%;-->
+            <rect fill="#757584" width="96vw" height="100%" x="1%" y="100px"/>
             <!--Tecla blancas:rgb(81.176471%,84.705882%,86.27451%)-->
             <!--Así será las teclas negras: <rect width="10%" height="30%" x="40%" y="40%" fill="rgb(14.901961%,19.607843%,21.960784%);"/>-->
             <!--Con los botones no me quise complicar la vida y decidí usar: Inkscape.-->
@@ -52,8 +59,7 @@
             </text>
             <!--END Title_type_button.-->
             <!--Begin Triangle:-->
-            <ellipse style="stroke:#ff2009;stroke-width:0.768793" fill="#000"
-                cx="65.734413" cy="25.895372" rx="53.8983" ry="8.0834103" id="triangle" class="type_button"/>
+            <ellipse fill="#000" cx="65.734413" cy="25.895372" rx="53.8983" ry="8.0834103" id="triangle" class="type_button"/>
             <text xml:space="preserve" style="font-size:10.6667px;line-height:1.25;inline-size:78.9761;fill:#ffffff;stroke-width:0.665613"
                 x="10.659509" y="21.45525" id="text_triangle" class="text_svg_"
                 transform="matrix(1.5023755,0,-0.06436638,0.66561256,18.591549,13.943662)">
@@ -62,8 +68,7 @@
             </text>
             <!--END Triangle.-->
             <!--Begin sawtooth:-->
-            <ellipse style="stroke:#ff2009;stroke-width:0.768793" fill="#000"
-                cx="65.734406" cy="45.814884" rx="53.8983" ry="8.0834103" id="sawtooth" class="type_button"/>
+            <ellipse fill="#000" cx="65.734406" cy="45.814884" rx="53.8983" ry="8.0834103" id="sawtooth" class="type_button"/>
             <text xml:space="preserve"style="font-size:10.6667px;line-height:1.25;inline-size:78.9761;fill:#ffffff;stroke-width:0.665613"
                 x="10.659509" y="21.45525" id="text_sawtooth" class="text_svg_"
                 transform="matrix(1.5023755,0,-0.06436638,0.66561256,15.789155,34.825883)">
@@ -71,8 +76,7 @@
             </text>
             <!--END sawtooth.-->
             <!--Begin square:-->
-            <ellipse style="stroke:#ff2009;stroke-width:0.768793" fill="#000"
-                cx="65.734413" cy="67.726357" rx="53.8983" ry="8.0834103" id="square" class="type_button"/>
+            <ellipse fill="#000" cx="65.734413" cy="67.726357" rx="53.8983" ry="8.0834103" id="square" class="type_button"/>
             <text xml:space="preserve" style="font-size:10.6667px;line-height:1.25;inline-size:78.9761;fill:#ffffff;stroke-width:0.665613"
                 x="10.659509" y="21.45525" id="text_square" class="text_svg_"
                 transform="matrix(1.5023755,0,-0.06436638,0.66561256,24.420949,54.745404)">
@@ -80,8 +84,7 @@
             </text>
             <!--End square.-->
             <!--Begin sine:-->
-            <ellipse style="stroke:#ff2009;stroke-width:0.768793" fill="#000"
-                cx="65.734413" cy="88.30986" rx="53.8983" ry="8.0834103" id="sine" class="type_button"/>
+            <ellipse fill="#000" cx="65.734413" cy="88.30986" rx="53.8983" ry="8.0834103" id="sine" class="type_button"/>
             <text xml:space="preserve" style="font-size:10.6667px;line-height:1.25;inline-size:78.9761;fill:#ffffff;stroke-width:0.665613"
                 x="10.659509" y="21.45525" id="text_sine" class="text_svg_"
                 transform="matrix(1.5023755,0,-0.06436638,0.66561256,34.380711,76.656872)">
@@ -100,66 +103,153 @@
                 transform="matrix(1.1364178,0,0,1.0154322,-140.21816,-20.280127)" id="text_X1" class="text_svg_">
                 <tspan x="274.22461" y="50.055571">Normal</tspan>
             </text>
-            <ellipse style="stroke:#ff2009;stroke-width:0.542631"  fill="#444"
-                cx="244.67807" cy="25.563379" rx="7.864501" ry="6.5365324" id="X1" class="sound-duration_button"/>
+            <ellipse fill="#444" cx="244.67807" cy="25.563379" rx="7.864501" ry="6.5365324" id="X1" class="sound-duration_button"/>
             <!--End Normal.-->
             <!--Begin X2:-->
             <text style="fill:#fff;stroke:#ff2009;stroke-width:0.542631" xml:space="preserve"
                 transform="matrix(1.0019012,0,0,1.0154322,-102.9692,-7.3225947)" id="text_X2" class="text_svg_">
                 <tspan x="274.22461" y="50.055571">X2</tspan>
             </text>
-            <ellipse style="stroke:#ff2009;stroke-width:0.542631"  fill="#444"
-                cx="245.01006" cy="42.494972" rx="7.864501" ry="6.5365324" id="X2" class="sound-duration_button"/>
+            <ellipse fill="#444" cx="245.01006" cy="42.494972" rx="7.864501" ry="6.5365324" id="X2" class="sound-duration_button"/>
             <!--End X2.-->
             <!--Begin X4:-->
             <text style="fill:#fff;stroke:#ff2009;stroke-width:0.542631" xml:space="preserve"
                 transform="matrix(1.0019012,0,0,1.0154322,-102.58928,11.591101)" id="text_X4" class="text_svg_">
                 <tspan x="274.22461" y="50.055571">X4</tspan>
             </text>
-            <ellipse style="stroke:#ff2009;stroke-width:0.542631"  fill="#444"
-                cx="245.67404" cy="59.758553" rx="7.864501" ry="6.5365324" id="X4" class="sound-duration_button"/>
+            <ellipse fill="#444" cx="245.67404" cy="59.758553" rx="7.864501" ry="6.5365324" id="X4" class="sound-duration_button"/>
             <!--End X4.-->
             <!--Begin X6:-->
             <text style="fill:#fff;stroke:#ff2009;stroke-width:0.542631" xml:space="preserve"
                 transform="matrix(1.0019012,0,0,1.0154322,-102.58926,28.854682)" id="text_X6" class="text_svg_">
                 <tspan x="274.22461" y="50.055571">X6</tspan>
             </text>
-            <ellipse style="stroke:#ff2009;stroke-width:0.542631" fill="#444"
-                cx="246.33801" cy="77.686111" rx="7.864501" ry="6.5365324" id="X6" class="sound-duration_button"/>
+            <ellipse fill="#444" cx="246.33801" cy="77.686111" rx="7.864501" ry="6.5365324" id="X6" class="sound-duration_button"/>
             <!--End X6.-->
             <!--End Inkscape.-->
         </svg>
         <script>
-            const HEIGHT_KEY=100;
-            const CANTIDAD_TECLA=49;
-            const TIME_NORMAL="X1";
-            var context_window_sound=new ( window.AudioContext || window.webKitAudioContext )();
-            var type_sound="triangle";
-            var id_time_note=TIME_NORMAL;
+            const HEIGHT_KEY=100,
+                CANTIDAD_TECLA=49,
+                TIME_NORMAL="X1",
+                SOUND_KEYS={
+                    "white":[
+                        /**@todo: llenar esto con los sonidos de un piano real.*/
+                    ],
+                    "black":[
+                        /**@todo: llenar esto con los sonidos de un piano real.*/
+                    ]
+                };//Nota: pon este arrays en otro archivo y lo importas.
+            var context_window_sound=new ( window.AudioContext || window.webKitAudioContext )(),
+                type_sound="triangle",
+                id_time_note=TIME_NORMAL;
+            /***@todo:
+                * Solo falta el sonido y provar el piano en dispocitivos moviles.
+            **/
             window.onload=function(){
-                let father=document.getElementById("main-piano");
-                let type_sound_buttons=document.getElementsByClassName("type_button");
-                let sound_duration_buttons=document.getElementsByClassName("sound-duration_button");
-                let y=110;
-                let key_x_inicial=16;
-                for ( let i=0,u=key_x_inicial; i<CANTIDAD_TECLA; i++,u+=31 ){
+                //BTN == BuTtoN.
+                const CLASS_TYPE_BTN="type_button",
+                    CLASS_TIME_SOUND_BTN="sound-duration_button",
+                    CLASS_KEY_WHITE="keys-white",
+                    CLASS_KEY_BLACK="keys-black",
+                    PATRON=[2,3],//Patron de las teclas negras.
+                    WIDTH_KEY_WHITE=29,
+                    HEIGHT_KEY_BLACK=parseInt(HEIGHT_KEY/1.5),
+                    KEY_X_INITIAL=16,
+                    KEY_Y_INITIAL=110;
+                    
+                let father=document.getElementById("main-piano"),
+                    type_sound_buttons=document.getElementsByClassName( CLASS_TYPE_BTN ),
+                    sound_duration_buttons=document.getElementsByClassName( CLASS_TIME_SOUND_BTN ),
+                    key_x_inicial=KEY_X_INITIAL,
+                    height_main=220,//Para cambiar el tamaño del piano deacuerdo a las teclas. Nota: Se cambia al final del bucle de la tecla blancas.
+                    /**
+                        * @param ELEMENT{DOM_ELEMENT}: ELement of type html for insert attribute and value.
+                        * @param MATRIS_OF_ATTRIBUTE_VALUE{ARRAYS: Key, Value}: { ATTRIBUTE:VALUE }: Una matris de clave valor que acepta los attributos pasado como clave y le asigna el valor pasado como value. Nota: CLAVE y VALUE debe ser puro string;
+                    **/
+                    setAttribute=function( ELEMENT,MATRIS_OF_ATTRIBUTE_VALUE ){
+                        for ( let i in MATRIS_OF_ATTRIBUTE_VALUE ){
+                            //Solo para asegurarme que son iguales:
+                            /**@todo poner el seguro.*/
+                            ELEMENT.setAttribute( i,MATRIS_OF_ATTRIBUTE_VALUE[i] );
+                        }
+                    },
+                    position=function(x,y,w=undefined,h=undefined){
+                        this.x=x;
+                        this.y=y;
+                        this.width=w;
+                        this.height=h;
+                        return this;
+                    };
+                //Ahora vamos con las teclas blancas.
+                for ( let i=0,p=position(key_x_inicial,KEY_Y_INITIAL,WIDTH_KEY_WHITE,HEIGHT_KEY),final_tam_screen=screen.availWidth-(WIDTH_KEY_WHITE*2); i<CANTIDAD_TECLA; i++,p.x+=31 ){
                     let child=document.createElement("rect");
                     father.appendChild(child);
-                    if ( u>1330-58 ){
-                        u=++key_x_inicial;
-                        y+=HEIGHT_KEY;
+                    if ( p.x>final_tam_screen ){
+                        p.x=++key_x_inicial;
+                        p.y+=HEIGHT_KEY;
+                        height_main+=p.height;
                     }
-                    child.setAttribute( "class","keys" );
-                    child.setAttribute( "id","key_number_"+i );
-                    child.setAttribute( "fill","rgb(81.176471%,84.705882%,86.27451%)" );
-                    child.setAttribute( "stroke","black" );
-                    child.setAttribute( "width","29px" );
-                    child.setAttribute( "height",HEIGHT_KEY+"px" );
-                    child.setAttribute( "y",y+"px" );
-                    child.setAttribute( "x",u+"px" );
-                    child.setAttribute( "onclick","click_key(this,"+i+");" );
-                    child.setAttribute( "onmousemove","mouse_move(this);" );
-                    child.setAttribute("note",""+i);
+                    setAttribute( child,{
+                        "class":CLASS_KEY_WHITE,
+                        "id":"key_number_"+i,
+                        "fill":"rgb(81.176471%,84.705882%,86.27451%)",
+                        "stroke":"black",
+                        "width":p.width+"px",
+                        "height":p.height+"px",
+                        /*"style":"z-index:2",*/ //Nota: No trae efecto, igualmente los elementos svg pone de primero los elementos que llegan de ultimo.
+                        "y":p.y+"px",
+                        "x":p.x+"px",
+                        "onclick":"click_key(this,"+i+",HEIGHT_KEY-10,HEIGHT_KEY);",
+                        "onmousemove":"mouse_move(this,\"95px\",HEIGHT_KEY+\"px\");",
+                        "note":i/**@todo: Reemplazar por SOUND_KEYS["white"][i]*/
+                    } );
+                    
+                    //Si deseas mas velocidad puedes agregar esta linea\|/ de codigo fuera del bucle:\|/
+                    father.innerHTML+='\n';//Esta linea de código Cumple dos funciones: 1- Actualizar la imagen svg. 2- Poner un salto de linea para que sea mas facil depurarlo en el navegador.
+                }
+                father.style.height=height_main+"px";//Le asignamos el height final al elemento padre.
+                
+                //No combines este bucle con el otro, si lo haces las teclas negras quedarán debajo de las teclas blancas y eso no lo queremos.
+                //Ahora vamos con las teclas negras.
+                for ( let i=0,p=position((key_x_inicial=KEY_X_INITIAL),KEY_Y_INITIAL,"15px",HEIGHT_KEY_BLACK),
+                        x_base=(WIDTH_KEY_WHITE/1.25),//Necesito saber el tamaño de la tecla blanca para asignarle la posicion a las teclas negras.
+                        height_for_event=HEIGHT_KEY_BLACK-5,//Cambiamos el tamaño en un evento.
+                        if_create_key=true,//Se me hace mas facil mantener y mejorar eligiendo cuando creo una tecla negla y cuando nó en el piano. Porque así puedo aumentar la cantidad de teclas blancas en el piano y el patron se repitiriá.
+                        id=0,//ID
+                        i_patron=0,//Se usará como indice de el arrays constante: PATRON.
+                        patron_actual=1//Se usará para determinar el patron actual: 2 || 3
+                    ; i<CANTIDAD_TECLA-1; i++,p.x+=31 ){/**@todo Daniel revisa con la condicion: i<CANTIDAD_TECLA// sin restarle nada.**/
+                    if ( p.x>screen.availWidth-58 ){//Para colocar las teclas negras a juro debo usar el mismo calculo que la tecla blancas.
+                        p.x=++key_x_inicial;
+                        p.y+=HEIGHT_KEY;
+                    }
+                    if ( if_create_key ){
+                        child=document.createElement("rect");
+                        father.appendChild(child);
+                        setAttribute( child,{
+                            "class":CLASS_KEY_BLACK,
+                            "id":"key_black_"+id,
+                            "fill":"#0f0f0f",
+                            "width":p.width,
+                            "height":p.height+"px",
+                             /*"style":"z-index:1",*/ //Nota no uses z-index para hacer que la tecla quede de primero para usar el bucle for de arriba directamente, porque no funciona.
+                            "y":p.y+"px",
+                            "x":(x_base+p.x)+"px",
+                            "onclick":"click_key(this,"+i+","+height_for_event+"-2,"+p.height+");",
+                            "onmousemove":"mouse_move(this,\""+height_for_event+"\"+\"px\",\""+p.height+"\"+\"px\");",
+                            "note":i/**@todo: Reemplazar por SOUND_KEYS["black"][i]*/
+                        });
+                        if ( patron_actual==PATRON[i_patron] ){
+                            i_patron=( i_patron )?0:1;
+                            patron_actual=0;
+                            if_create_key=false;
+                        }
+                        id++;
+                        patron_actual++;
+                    }else{
+                        if_create_key=true;
+                    }
                     
                     //Si deseas mas velocidad puedes agregar esta linea\|/ de codigo fuera del bucle:\|/
                     father.innerHTML+='\n';//Esta linea de código Cumple dos funciones: 1- Actualizar la imagen svg. 2- Poner un salto de linea para que sea mas facil depurarlo en el navegador.
@@ -184,18 +274,19 @@
                 }
                 change_sound_duration(document.getElementById("X1"));
             };
-            function click_key(this__,number_id){
-                this__.style.height=(HEIGHT_KEY-10)+"px";
+            function click_key( this__,number_id,HEIGHT_INITIAL,HEIGHT_FINAL ){
+                this__.style.height=HEIGHT_INITIAL+"px";
                 setTimeout( function(){
-                    this__.style.height=HEIGHT_KEY+"px";
+                    this__.style.height=HEIGHT_FINAL+"px";
                 },400 );
                 ///@todo Verificar con el telefono que el sonido funcione.
-                sound(parseInt(this__.getAttribute("note"))*10,type_sound,parseInt(extrano_los_cortes_de_lista_de_python(id_time_note,1)));
+                sound(parseInt(this__.getAttribute("note"))*94,type_sound,parseInt(extrano_los_cortes_de_lista_de_python(id_time_note,1)));
             }
-            function mouse_move(this__){
-                this__.style.height='95px';
+            function click_key_black(  ){}
+            function mouse_move(this__,HEIGHT_INITIAL,HEIGHT_FINAL){
+                this__.style.height=HEIGHT_INITIAL;
                 setTimeout( function(){
-                    this__.style.height=HEIGHT_KEY+"px";
+                    this__.style.height=HEIGHT_FINAL;
                 },400 );
             }
             function change_type_sound(this__){
@@ -220,6 +311,10 @@
                 }
                 return str_actual;
             }
+            /***
+             *
+             *
+            **/
             function sound(NOTE,OSC_TYPE,TIME){
                 //Creamos nuestro oscilador.
                 let osc=context_window_sound.createOscillator();
