@@ -195,7 +195,7 @@
                         k_white=new position( KEY_X_INITIAL,KEY_Y_INITIAL, WIDTH_KEY_WHITE, HEIGHT_KEY ),/*Dimension de la tecla blanca.*/
                         k_black=new position(WIDTH_KEY_WHITE/1.25,k_white.y,WIDTH_KEY_BLACK,HEIGHT_KEY_BLACK),/*Dimension de la tecla negra.*/
                         raiz_doudecima_de_2=function(i){
-                            return Math.sqrt(Math.pow(2,(i+(i%2==0)?2:1)/12));
+                            return Math.sqrt(Math.pow(2,(i+(!i%2)?((i)?2:0):1)/12));
                         }
                     ;
                     //Ahora vamos con las teclas blancas.
