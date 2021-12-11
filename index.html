@@ -1,0 +1,329 @@
+<!doctype HTML>
+<html lang="es">
+    <head>
+        <title>Piano.</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <style>
+            body{
+                background-color:rgb(40,40,50);
+            }
+            main{
+                background-color:white;
+                width:auto;
+            }
+            .key-parent .key-piano{
+                width:50px;
+                height:100px;
+                background-color:white;
+                border:2px solid black;
+                margin-right:0px;
+            }
+            #main-piano{
+                background-color:#20202f;
+                width:100vw;
+                height:220px;/*Si se quita no pasa nada, porque con JavaScript le asigno este mismo valor y voy aumentando a medida que coloque mas fila de teclas.*/
+            }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+            .text_svg_ {
+                font-style:normal;
+                font-variant:normal;
+                font-weight:normal;
+                font-stretch:normal;
+                font-family:sans-serif;
+                font-variant-ligatures:normal;
+                font-variant-caps:normal;
+                font-variant-numeric:normal;
+                font-variant-east-asian:normal;
+                white-space:pre;
+                fill-opacity:1;
+                stroke:none;
+            }
+            .text_svg_2{
+                fill:#fff;
+                stroke:#ff2009;
+                stroke-width:0.542631;
+            }
+            .sound-duration_button,.type_button{
+                stroke:#ff2009;
+                stroke-width:0.768793;
+                
+            }
+            .text_type_sound_2{
+                font-size:10.6667px;
+                line-height:1.25;
+                inline-size:78.9761;
+                fill:#ffffff;
+                stroke-width:0.665613
+            }
+            .keys-black{
+                z-index:1;
+            }
+            footer{
+                color:#dddddd;
+                text-align:center;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <?xml version="1.0" encoding="UTF-8"?>
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="main-piano">
+                <!--FONDO:-->
+                <!--@TODO ver si height:67%, es mejor que height:100%;-->
+                <rect fill="#757584" width="96vw" height="100%" x="1%" y="100px"/>
+                <!--Tecla blancas:rgb(81.176471%,84.705882%,86.27451%)-->
+                <!--Así será las teclas negras: <rect width="10%" height="30%" x="40%" y="40%" fill="rgb(14.901961%,19.607843%,21.960784%);"/>-->
+                <!--Con los botones no me quise complicar la vida y decidí usar: Inkscape.-->
+                <!--Begin Inkscape:-->
+                <!--Begin Title_type_button:-->
+                <text xml:space="preserve" style="font-size:10.6667px;line-height:1.25;inline-size:78.9761;fill:#999999;stroke-width:0.665613"
+                    x="10.659509" y="21.45525" id="title_type_sound" class="text_svg_"
+                    transform="matrix(1.5023755,0,-0.06436638,0.66561256,0,0)" >
+                    <tspan x="10.659509" y="21.45525" id="text_title_type_sound">Type  sounds</tspan>
+                </text>
+                <!--END Title_type_button.-->
+                <!--Begin Triangle:-->
+                <ellipse fill="#000" cx="65.734413" cy="25.895372" rx="53.8983" ry="8.0834103" id="triangle" class="type_button"/>
+                <text xml:space="preserve" x="10.659509" y="21.45525" id="text_triangle" class="text_svg_ text_type_sound_2"
+                    transform="matrix(1.5023755,0,-0.06436638,0.66561256,18.591549,13.943662)">
+                    <tspan
+                        x="12" y="21.45525">triangle</tspan>
+                </text>
+                <!--END Triangle.-->
+                <!--Begin sawtooth:-->
+                <ellipse fill="#000" cx="65.734406" cy="45.814884" rx="53.8983" ry="8.0834103" id="sawtooth" class="type_button"/>
+                <text xml:space="preserve" x="10.659509" y="21.45525" id="text_sawtooth" class="text_svg_ text_type_sound_2"
+                    transform="matrix(1.5023755,0,-0.06436638,0.66561256,15.789155,34.825883)">
+                    <tspan x="10.659509" y="21.45525">sawtooth</tspan>
+                </text>
+                <!--END sawtooth.-->
+                <!--Begin square:-->
+                <ellipse fill="#000" cx="65.734413" cy="67.726357" rx="53.8983" ry="8.0834103" id="square" class="type_button"/>
+                <text xml:space="preserve" x="10.659509" y="21.45525" id="text_square" class="text_svg_ text_type_sound_2" transform="matrix(1.5023755,0,-0.06436638,0.66561256,24.420949,54.745404)">
+                    <tspan x="10.659509" y="21.45525">square</tspan>
+                </text>
+                <!--End square.-->
+                <!--Begin sine:-->
+                <ellipse fill="#000" cx="65.734413" cy="88.30986" rx="53.8983" ry="8.0834103" id="sine" class="type_button"/>
+                <text xml:space="preserve" class="text_type_sound_2" x="10.659509" y="21.45525" id="text_sine" class="text_svg_"
+                    transform="matrix(1.5023755,0,-0.06436638,0.66561256,34.380711,76.656872)">
+                    <tspan x="10.659509" y="21.45525">sine</tspan>
+                </text>
+                <!--END sine.-->
+                <!--Begin Title_sound_duration:-->
+                <text style="font-size:14.1089px;line-height:1.25;fill:#808080;" xml:space="preserve"
+                    transform="matrix(1,0,0,0.5715693,-108.22938,-14.654066)" id="title_sound-duration" class="text_svg_">
+                    <tspan x="274.22461" y="50.055571">Sound duration</tspan>
+                </text>
+                <!--End Title_sound_duration.-->
+                <!--Begin Normal:-->
+                <!--NORMAL==X1-->
+                <text xml:space="preserve" transform="matrix(1.1364178,0,0,1.0154322,-140.21816,-20.280127)" id="text_X1" class="text_svg_ text_svg_2">
+                    <tspan x="274.22461" y="50.055571">Normal</tspan>
+                </text>
+                <ellipse fill="#444" cx="244.67807" cy="25.563379" rx="7.864501" ry="6.5365324" id="X1" class="sound-duration_button"/>
+                <!--End Normal.-->
+                <!--Begin X2:-->
+                <text xml:space="preserve" transform="matrix(1.0019012,0,0,1.0154322,-102.9692,-7.3225947)" id="text_X2" class="text_svg_ text_svg_2">
+                    <tspan x="274.22461" y="50.055571">X2</tspan>
+                </text>
+                <ellipse fill="#444" cx="245.01006" cy="42.494972" rx="7.864501" ry="6.5365324" id="X2" class="sound-duration_button"/>
+                <!--End X2.-->
+                <!--Begin X4:-->
+                <text xml:space="preserve" transform="matrix(1.0019012,0,0,1.0154322,-102.58928,11.591101)" id="text_X4" class="text_svg_ text_svg_2">
+                    <tspan x="274.22461" y="50.055571">X4</tspan>
+                </text>
+                <ellipse fill="#444" cx="245.67404" cy="59.758553" rx="7.864501" ry="6.5365324" id="X4" class="sound-duration_button"/>
+                <!--End X4.-->
+                <!--Begin X6:-->
+                <text xml:space="preserve" transform="matrix(1.0019012,0,0,1.0154322,-102.58926,28.854682)" id="text_X6" class="text_svg_ text_svg_2">
+                    <tspan x="274.22461" y="50.055571">X6</tspan>
+                </text>
+                <ellipse fill="#444" cx="246.33801" cy="77.686111" rx="7.864501" ry="6.5365324" id="X6" class="sound-duration_button"/>
+                <!--End X6.-->
+                <!--End Inkscape.-->
+                <!--No es reponsive:<text style="fill:#fff;font-size:2em;" transform="matrix(1.0019012,0,0,1.0154322,-102.58926,28.854682)" id="text_logo">
+                    <tspan x="40vw" y="30">Teclado profecional DABL.</tspan>
+                </text>-->
+            </svg>
+            <script>
+                const HEIGHT_KEY=100,
+                    CANTIDAD_TECLA=88,
+                    TIME_NORMAL="X1";
+                var context_window_sound=new ( window.AudioContext || window.webKitAudioContext )(),
+                    type_sound="triangle",
+                    id_time_note=TIME_NORMAL;
+                /***@todo:
+                    * Solo falta el sonido y provar el piano en dispocitivos moviles.
+                **/
+                class position{
+                    constructor(x,y,w=undefined,h=undefined){
+                        this.x=x;
+                        this.y=y;
+                        this.width=w;
+                        this.height=h;
+                    }
+                }
+                window.onload=function(){
+                    //BTN == BuTtoN.
+                    const CLASS_TYPE_BTN="type_button",
+                        CLASS_TIME_SOUND_BTN="sound-duration_button",
+                        CLASS_KEY_WHITE="keys-white",
+                        CLASS_KEY_BLACK="keys-black",
+                        PATRON=[2,3],//Patron de las teclas negras.
+                        WIDTH_KEY_WHITE=29,
+                        WIDTH_KEY_BLACK=WIDTH_KEY_WHITE>>1,
+                        HEIGHT_KEY_BLACK=parseInt(HEIGHT_KEY/1.5),
+                        HEIGHT_KEY_BLACK_IF_MOUSEMOVE=parseInt(HEIGHT_KEY_BLACK/1.2),
+                        HEIGHT_KEY_BLACK_IF_ONCLICK=parseInt(HEIGHT_KEY_BLACK/1.3),
+                        KEY_X_INITIAL=16,
+                        KEY_Y_INITIAL=110,
+                        MAX_WIDTH_SCREEN=screen.availWidth-(WIDTH_KEY_WHITE<<1);
+                    
+                    let father=document.getElementById("main-piano"),
+                        type_sound_buttons=document.getElementsByClassName( CLASS_TYPE_BTN ),
+                        sound_duration_buttons=document.getElementsByClassName( CLASS_TIME_SOUND_BTN ),
+                        key_x_inicial=KEY_X_INITIAL,
+                        height_main=220,//Para cambiar el tamaño del piano deacuerdo a las teclas. Nota: Se cambia al final del bucle de la tecla blancas.
+                        /**
+                            * @param ELEMENT{DOM_ELEMENT}: ELement of type html for insert attribute and value.
+                            * @param MATRIS_OF_ATTRIBUTE_VALUE{ARRAYS: Key, Value}: { ATTRIBUTE:VALUE }: Una matris de clave valor que acepta los attributos pasado como clave y le asigna el valor pasado como value. Nota: CLAVE y VALUE debe ser puro string;
+                        **/
+                        keys=[""/*string elements white key*/,
+                              ""/*string elements black keys*/
+                            ],
+                        k_white=new position( KEY_X_INITIAL,KEY_Y_INITIAL, WIDTH_KEY_WHITE, HEIGHT_KEY ),/*Dimension de la tecla blanca.*/
+                        k_black=new position(WIDTH_KEY_WHITE/1.25,k_white.y,WIDTH_KEY_BLACK,HEIGHT_KEY_BLACK),/*Dimension de la tecla negra.*/
+                        raiz_doudecima_de_2=function(i){
+                            return Math.sqrt(Math.pow(2,(i+(!i%2)?((i)?2:0):1)/12));
+                        }
+                    ;
+                    //Ahora vamos con las teclas blancas.
+                    for ( let i=0,
+                              note=174.6141157165021,/*No suena la corneta cuando empezamos desde 27.5, pero desde la frecuencia 174.6141157165021 en adelante si suena.:)*/
+                              id_k_white=0,/*id de la tecla blancas.*/
+                              id_k_b=0,/*id de la tecla negra.*/
+                              i_patron=1,/*Se usará como indice de el arrays constante: PATRON que determinará el patron actual de las teclas.*/
+                              patron_actual=3,//Se usa como un contador que se reiniciará cuando llegue al patron actual.
+                              if_create_key_black=true/*Para saber si debemos innorar una posicion y lograr el efecto de las teclas negras: do,re,mi,fa,sol, la,si, do*/
+                        
+                        ; i<CANTIDAD_TECLA; i++,id_k_white++,k_white.x+=31 ){
+                        
+                        if ( k_white.x>MAX_WIDTH_SCREEN ){
+                            k_white.x=++key_x_inicial;
+                            k_white.y+=HEIGHT_KEY;
+                            height_main+=k_white.height;
+                        }
+                        //Creamos la tecla actual blanca.
+                        keys[0]+='<rect class="'+CLASS_KEY_WHITE+'" id="key_number_'+id_k_white+'" fill="rgb(81.176471%,84.705882%,86.27451%)" stroke="black"'+
+                            ' width="'+k_white.width+'px" height="'+k_white.height+'px" x="'+k_white.x+'px" y="'+k_white.y+'px" onclick="click_key(this,'+i+',HEIGHT_KEY-10,HEIGHT_KEY);" onmousemove="mouse_move(this,\'95px\',HEIGHT_KEY+\'px\');"'+
+                            ' note="'+note+'"/>\n';
+                        //Ahora vamos con la tecla negra:
+                        if ( if_create_key_black ){
+                            keys[1]+='<rect class="'+CLASS_KEY_BLACK+'" id="key_black_'+id_k_b+'" fill="#0f0f0f" width="'+k_black.width+'px" height="'+k_black.height+'px"'+
+                                    ' x="'+(k_white.x+k_black.x)+'" y="'+k_white.y+'"'+
+                                    ' onclick="click_key(this,'+i+','+HEIGHT_KEY_BLACK_IF_ONCLICK+','+k_black.height+');" onmousemove="mouse_move(this,'+HEIGHT_KEY_BLACK_IF_MOUSEMOVE+'+\'px\','+k_black.height+');"'+
+                                    ' note="'+(note*=raiz_doudecima_de_2(i))+'"/>\n';
+                                    
+                            if ( patron_actual==PATRON[i_patron] ){
+                                i_patron=( i_patron )?0:1;
+                                patron_actual=0;
+                                if_create_key_black=false;
+                            }
+                            id_k_b++;
+                            patron_actual++;
+                            i++;//Para no pasarnos de teclas aumentamos esta variable mas.
+                        }else{
+                            if_create_key_black=true;
+                        }
+                        note*=raiz_doudecima_de_2(i);
+                    }
+                    //Actualizamos el tamaño del piano.
+                    father.style.height=height_main+"px";//Le asignamos el height final al elemento padre.
+                    
+                    father.innerHTML+=keys[0]+keys[1];//Esta linea de código Cumple la funcion de actualizar la imagen svg.
+                    
+                    //Nota: Al ellipse le digo button.
+                    for ( let i=0; i<type_sound_buttons.length; i++ ){
+                        let id=type_sound_buttons[i].getAttribute("id");
+                        //Agregamos el evento al boton por medio de un attributo, NOTA: No sirve addEventListener con imagenes svg. Por lo que tienes que trabajar con el attributo directamente.
+                        type_sound_buttons[i].setAttribute("onclick","change_type_sound(this);");
+                        //Como el texto dentro del boton tiene casi el mismo id que nuestro boton, entonces aprovechamos eso y ponemos el evento de tal manera que se envie el boton y no el texto.
+                        document.getElementById("text_"+id).setAttribute("onclick","change_type_sound(document.getElementById('"+id+"'));");
+                    }
+                    //Para activar por defecto el boton del triangulo.
+                    change_type_sound(document.getElementById("triangle"));
+                    
+                    for ( let i=0,is_normal=true; i<sound_duration_buttons.length; i++ ){
+                        let id=sound_duration_buttons[i].getAttribute("id");
+                        //Agregamos el evento al boton por medio de un attributo, NOTA: No sirve addEventListener con imagenes svg. Por lo que tienes que trabajar con el attributo directamente.
+                        sound_duration_buttons[i].setAttribute("onclick","change_sound_duration(this);");
+                        //Como el texto dentro del boton tiene casi el mismo id que nuestro boton, entonces aprovechamos eso y ponemos el evento de tal manera que se envie el boton y no el texto.
+                        document.getElementById("text_"+id).setAttribute("onclick","change_sound_duration(document.getElementById('"+id+"'));");
+                    }
+                    change_sound_duration(document.getElementById("X1"));
+                };
+                function click_key( this__,number_id,HEIGHT_INITIAL,HEIGHT_FINAL ){
+                    this__.style.height=HEIGHT_INITIAL+"px";
+                    setTimeout( function(){
+                        this__.style.height=HEIGHT_FINAL+"px";
+                    },400 );
+                    sound(parseFloat(this__.getAttribute("note")),type_sound,parseInt(recortar_cadena(id_time_note,1)));
+                }
+                function mouse_move(this__,HEIGHT_INITIAL,HEIGHT_FINAL){
+                    this__.style.height=HEIGHT_INITIAL;
+                    setTimeout( function(){
+                        this__.style.height=HEIGHT_FINAL;
+                    },400 );
+                }
+                function change_type_sound(this__){
+                    //Desativamos el boton anterior.
+                    document.getElementById(type_sound).setAttribute("fill","#000");
+                    //Activamos la seleccion actual.
+                    this__.setAttribute("fill","#888");
+                    type_sound=this__.getAttribute("id");
+                }
+                function change_sound_duration(this__){
+                    //Desactivamos al boton anterior.
+                    document.getElementById(id_time_note).setAttribute("fill","#444");
+                    //Activamos al actual.
+                    this__.setAttribute("fill","#fff");
+                    //Por ultimos actualizamos el control
+                    id_time_note=this__.getAttribute("id");
+                }
+                function recortar_cadena(str__,indice){
+                    let str_actual="";
+                    for ( let i=indice; i<str__.length; i++ ){
+                        str_actual+=str__[i];
+                    }
+                    return str_actual;
+                }
+                /***
+                 *
+                 *
+                **/
+                function sound(NOTE,OSC_TYPE,TIME){
+                    //Creamos nuestro oscilador.
+                    let osc=context_window_sound.createOscillator();
+                    //Cambiamos el tipo de frecuencia.
+                    osc.type=OSC_TYPE;//Admite: sine,square,sawtooth, triangle.
+                    //Actualizamos la nota.
+                    osc.frequency.value=NOTE;
+                    //Asignamos el destino del sonido.
+                    osc.connect( context_window_sound.destination );
+                    //Iniciamos el sonido.
+                    osc.start();
+                    //Detenemos el sonido por TIME tiempo.
+                    osc.stop( context_window_sound.currentTime+(TIME*0.02) );
+                }
+            </script>
+            <br/>
+            <br/>
+            <br/>
+        </main>
+        <footer>
+            <hr/>
+            <span>Copyright (c) 2021 dabl03</span>
+        </footer>
+    </body>
+</html>
