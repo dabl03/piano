@@ -268,7 +268,7 @@
                     setTimeout( function(){
                         this__.style.height=HEIGHT_FINAL+"px";
                     },400 );
-                    sound(parseInt(this__.getAttribute("note")),type_sound,parseInt(recortar_cadena(id_time_note,1)));
+                    sound(parseFloat(this__.getAttribute("note")),type_sound,parseInt(recortar_cadena(id_time_note,1)));
                 }
                 function mouse_move(this__,HEIGHT_INITIAL,HEIGHT_FINAL){
                     this__.style.height=HEIGHT_INITIAL;
