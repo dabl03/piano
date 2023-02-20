@@ -85,7 +85,7 @@
                 color:white;
                 font-weight: bold;
             }
-            caption{
+            table{
                 border:2px solid gray;
             }
         </style>
@@ -170,10 +170,14 @@
                     <!--End X6.-->
                     <!--End Inkscape.-->
                 </svg>
-                <caption align="top">
-                    <legend><label for="level-range">Volumen</label></legend>
-                    <input type="range" min="0" max="10" id="level-range" value=10 onchange="level_change(this);"/>
-                </caption>
+                <table>
+                    <caption align="top" title="Volumen">
+                        <legend><label for="level-range">Volumen</label></legend>
+                    </caption>
+                    <tr><td>
+                        <input type="range" min="0" max="10" id="level-range" value=10 onchange="level_change(this);"/>
+                    </td></tr>
+                </table>
                 <div id="frame-keys">
                     <svg id="canvas-keys">
                         <!--Generado por JavaScript-->
