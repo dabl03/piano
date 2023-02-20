@@ -81,6 +81,13 @@
                 color:#dddddd;
                 text-align:center;
             }
+            label{
+                color:white;
+                font-weight: bold;
+            }
+            caption{
+                border:2px solid gray;
+            }
         </style>
     </head>
     <body>
@@ -88,7 +95,7 @@
             <!--Para dar la sensación de que todo hasta el título es parte del piano.-->
             <div id="frame-piano">
                 <!--Nota: Es mejor colocar el titulo aqui(afuera de la etiqueta svg), porque ayuda a que sea mas reponsive la pagina web-->
-                <h2 id="title-main"><span class="align-center">Teclado profecional DABL.</span></h2>
+                <h2 id="title-main"><span class="align-center">Teclado DABL.</span></h2>
                 
                 <!--Nota: Para agregarle una barra de scroll separo la imagen svg con los botones de la imagen svg con las teclas(que esta dentro de un div para aprovechar el scroll del div)-->
                 <?xml version="1.0" encoding="UTF-8"?>
@@ -163,6 +170,10 @@
                     <!--End X6.-->
                     <!--End Inkscape.-->
                 </svg>
+                <caption align="top">
+                    <legend><label for="level-range">Volumen</label></legend>
+                    <input type="range" min="0" max="10" id="level-range" value=10 onchange="level_change(this);"/>
+                </caption>
                 <div id="frame-keys">
                     <svg id="canvas-keys">
                         <!--Generado por JavaScript-->
@@ -171,11 +182,12 @@
             </div>
             <script>
                 const HEIGHT_KEY=100,
-                    CANTIDAD_TECLA=88,
+                    CANTIDAD_TECLA=72,/*Me gustaria hacerlo de 88 teclas, pero no suena las 16 teclas que le quitamos.*/
                     TIME_NORMAL="X1";
                 var context_window_sound=new ( window.AudioContext || window.webKitAudioContext )(),
                     type_sound="triangle",
-                    id_time_note=TIME_NORMAL;
+                    id_time_note=TIME_NORMAL,
+                    level_sound=1;
                 /***@todo:
                     * Solo falta el sonido, debes buscarlo en google.
                 **/
@@ -299,6 +311,9 @@
                     }
                     change_sound_duration(document.getElementById("X1"));
                 };
+                function level_change(input_range){
+                    level_sound=input_range.value*0.1;
+                }
                 function click_key( this__,number_id,HEIGHT_INITIAL,HEIGHT_FINAL ){
                     this__.style.height=HEIGHT_INITIAL+"px";
                     setTimeout( function(){
@@ -347,10 +362,20 @@
                     osc.type=OSC_TYPE;//Admite: sine,square,sawtooth, triangle.
                     //Actualizamos la nota.
                     osc.frequency.value=NOTE;
-                    //Asignamos el destino del sonido.
-                    osc.connect( context_window_sound.destination );
+
+                    let ganancia=context_window_sound.createGain();
+                    ganancia.gain.value=level_sound;/*El volumen. Medio de 0-1. 1-maximo, 0-minimo*/
+
+                    let analizador=context_window_sound.createAnalyser();
+                    analizador.fftSize = 2048;
+
+
+                    //Asignamos el destino del sonido. Antes usaba: /*context_window_sound.destination*/
+                    osc.connect( ganancia );
+                    ganancia.connect(analizador);
+                    analizador.connect(context_window_sound.destination);
                     //Iniciamos el sonido.
-                    osc.start();
+                    osc.start(0);/*el numero significa retraso para llamar al start. Si se establece en 1 entonces esperarà a que se llame 2 veces para empezar a sonar.*/
                     //Detenemos el sonido por TIME tiempo.
                     osc.stop( context_window_sound.currentTime+(TIME*0.2) );
                 }
