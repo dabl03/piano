@@ -1,396 +1,142 @@
 <!doctype HTML>
 <html lang="es">
-    <head>
-        <title>Piano.</title>
-        <meta charset="utf-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <style>
-            body{
-                background-color:rgb(40,40,50);
-                overflow:visible;
-                --WIDTH-SCREEN:99vw;
-                --BACKGROUND-COLOR-PIANO:#000;
-                
-            }
-            main{
-                background-color:white;
-                width:auto;
-            }
-            #title-main{
-                text-align:center;
-                color:#dbdbea;
-            }
-            .key-parent .key-piano{
-                width:50px;
-                height:100px;
-                background-color:white;
-                border:2px solid black;
-                margin-right:0px;
-            }
-            .text_svg_ {
-                font-style:normal;
-                font-variant:normal;
-                font-weight:normal;
-                font-stretch:normal;
-                font-family:sans-serif;
-                font-variant-ligatures:normal;
-                font-variant-caps:normal;
-                font-variant-numeric:normal;
-                font-variant-east-asian:normal;
-                white-space:pre;
-                fill-opacity:1;
-                stroke:none;
-            }
-            .text_svg_2{
-                fill:#fff;
-                stroke:#ff2009;
-                stroke-width:0.542631;
-            }
-            .sound-duration_button,.type_button{
-                stroke:#ff2009;
-                stroke-width:0.768793;
-                
-            }
-            .text_type_sound_2{
-                font-size:10.6667px;
-                line-height:1.25;
-                inline-size:78.9761;
-                fill:#ffffff;
-                stroke-width:0.665613
-            }
-            #frame-piano, #frame-button, #frame-keys, #title-main{
-                background-color:#000;/*For compatibility.*/
-                background-color:var(--BACKGROUND-COLOR-PIANO);
-            }
-            #frame-keys{
-                overflow-x:scroll;
-                width:99vw;
-                width:var(--WIDTH-SCREEN);
-                height:150px;
-                margin-top:0;
-            }
-            #canvas-keys{
-                background-color:#757584;
-                width:99vw;
-                width:var(--WIDTH-SCREEN);
-                height:120px;
-                margin-left:10px;
-                margin-right:10px;
-            }
-            footer{
-                color:#dddddd;
-                text-align:center;
-            }
-            label{
-                color:white;
-                font-weight: bold;
-            }
-            table{
-                border:2px solid gray;
-            }
-        </style>
-    </head>
-    <body>
-        <main>
-            <!--Para dar la sensación de que todo hasta el título es parte del piano.-->
-            <div id="frame-piano">
-                <!--Nota: Es mejor colocar el titulo aqui(afuera de la etiqueta svg), porque ayuda a que sea mas reponsive la pagina web-->
-                <h2 id="title-main"><span class="align-center">Teclado DABL.</span></h2>
-                
-                <!--Nota: Para agregarle una barra de scroll separo la imagen svg con los botones de la imagen svg con las teclas(que esta dentro de un div para aprovechar el scroll del div)-->
-                <?xml version="1.0" encoding="UTF-8"?>
-                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="frame-button" width="100vw" height="105">
-                    <!--Con los botones no me quise complicar la vida y decidí usar: Inkscape.-->
-                    <!--Begin Inkscape:-->
-                    <!--Begin Title_type_button:-->
-                    <text xml:space="preserve" style="font-size:10.6667px;line-height:1.25;inline-size:78.9761;fill:#999;stroke-width:0.665613"
-                        x="10.659509" y="21.45525" id="title_type_sound" class="text_svg_"
-                        transform="matrix(1.5023755,0,-0.06436638,0.66561256,0,0)" >
-                        <tspan x="10.659509" y="21.45525" id="text_title_type_sound">Type  sounds</tspan>
-                    </text>
-                    <!--END Title_type_button.-->
-                    <!--Begin Triangle:-->
-                    <ellipse fill="#000" cx="65.734413" cy="25.895372" rx="53.8983" ry="8.0834103" id="triangle" class="type_button"/>
-                    <text xml:space="preserve" x="10.659509" y="21.45525" id="text_triangle" class="text_svg_ text_type_sound_2"
-                        transform="matrix(1.5023755,0,-0.06436638,0.66561256,18.591549,13.943662)">
-                        <tspan
-                            x="12" y="21.45525">triangle</tspan>
-                    </text>
-                    <!--END Triangle.-->
-                    <!--Begin sawtooth:-->
-                    <ellipse fill="#000" cx="65.734406" cy="45.814884" rx="53.8983" ry="8.0834103" id="sawtooth" class="type_button"/>
-                    <text xml:space="preserve" x="10.659509" y="21.45525" id="text_sawtooth" class="text_svg_ text_type_sound_2"
-                        transform="matrix(1.5023755,0,-0.06436638,0.66561256,15.789155,34.825883)">
-                        <tspan x="10.659509" y="21.45525">sawtooth</tspan>
-                    </text>
-                    <!--END sawtooth.-->
-                    <!--Begin square:-->
-                    <ellipse fill="#000" cx="65.734413" cy="67.726357" rx="53.8983" ry="8.0834103" id="square" class="type_button"/>
-                    <text xml:space="preserve" x="10.659509" y="21.45525" id="text_square" class="text_svg_ text_type_sound_2" transform="matrix(1.5023755,0,-0.06436638,0.66561256,24.420949,54.745404)">
-                        <tspan x="10.659509" y="21.45525">square</tspan>
-                    </text>
-                    <!--End square.-->
-                    <!--Begin sine:-->
-                    <ellipse fill="#000" cx="65.734413" cy="88.30986" rx="53.8983" ry="8.0834103" id="sine" class="type_button"/>
-                    <text xml:space="preserve" class="text_type_sound_2" x="10.659509" y="21.45525" id="text_sine" class="text_svg_"
-                        transform="matrix(1.5023755,0,-0.06436638,0.66561256,34.380711,76.656872)">
-                        <tspan x="10.659509" y="21.45525">sine</tspan>
-                    </text>
-                    <!--END sine.-->
-                    <!--Begin Title_sound_duration:-->
-                    <text style="font-size:14.1089px;line-height:1.25;fill:#808080;" xml:space="preserve"
-                        transform="matrix(1,0,0,0.5715693,-108.22938,-14.654066)" id="title_sound-duration" class="text_svg_">
-                        <tspan x="274.22461" y="50.055571">Sound duration</tspan>
-                    </text>
-                    <!--End Title_sound_duration.-->
-                    <!--Begin Normal:-->
-                    <!--NORMAL==X1-->
-                    <text xml:space="preserve" transform="matrix(1.1364178,0,0,1.0154322,-140.21816,-20.280127)" id="text_X1" class="text_svg_ text_svg_2">
-                        <tspan x="274.22461" y="50.055571">Normal</tspan>
-                    </text>
-                    <ellipse fill="#444" cx="244.67807" cy="25.563379" rx="7.864501" ry="6.5365324" id="X1" class="sound-duration_button"/>
-                    <!--End Normal.-->
-                    <!--Begin X2:-->
-                    <text xml:space="preserve" transform="matrix(1.0019012,0,0,1.0154322,-102.9692,-7.3225947)" id="text_X2" class="text_svg_ text_svg_2">
-                        <tspan x="274.22461" y="50.055571">X2</tspan>
-                    </text>
-                    <ellipse fill="#444" cx="245.01006" cy="42.494972" rx="7.864501" ry="6.5365324" id="X2" class="sound-duration_button"/>
-                    <!--End X2.-->
-                    <!--Begin X4:-->
-                    <text xml:space="preserve" transform="matrix(1.0019012,0,0,1.0154322,-102.58928,11.591101)" id="text_X4" class="text_svg_ text_svg_2">
-                        <tspan x="274.22461" y="50.055571">X4</tspan>
-                    </text>
-                    <ellipse fill="#444" cx="245.67404" cy="59.758553" rx="7.864501" ry="6.5365324" id="X4" class="sound-duration_button"/>
-                    <!--End X4.-->
-                    <!--Begin X6:-->
-                    <text xml:space="preserve" transform="matrix(1.0019012,0,0,1.0154322,-102.58926,28.854682)" id="text_X6" class="text_svg_ text_svg_2">
-                        <tspan x="274.22461" y="50.055571">X6</tspan>
-                    </text>
-                    <ellipse fill="#444" cx="246.33801" cy="77.686111" rx="7.864501" ry="6.5365324" id="X6" class="sound-duration_button"/>
-                    <!--End X6.-->
-                    <!--End Inkscape.-->
-                </svg>
-                <table>
-                    <caption align="top" title="Volumen">
-                        <legend><label for="level-range">Volumen</label></legend>
-                    </caption>
-                    <tr><td>
-                        <input type="range" min="0" max="10" id="level-range" value=10 onchange="level_change(this);"/>
-                    </td></tr>
-                </table>
-                <div id="frame-keys">
-                    <svg id="canvas-keys">
-                        <!--Generado por JavaScript-->
-                    </svg>
-                </div>
-            </div>
-            <script>
-                const HEIGHT_KEY=100,
-                    CANTIDAD_TECLA=72,/*Me gustaria hacerlo de 88 teclas, pero no suena las 16 teclas que le quitamos.*/
-                    TIME_NORMAL="X1";
-                var context_window_sound=new ( window.AudioContext || window.webKitAudioContext )(),
-                    type_sound="triangle",
-                    id_time_note=TIME_NORMAL,
-                    level_sound=1;
-                /***@todo:
-                    * Solo falta el sonido, debes buscarlo en google.
-                **/
-                class position{
-                    constructor(x,y,w=undefined,h=undefined){
-                        this.x=x;
-                        this.y=y;
-                        this.width=w;
-                        this.height=h;
-                    }
-                }
-                window.onload=function(){
-                    //BTN == BuTtoN.
-                    const 
-                        /*Class names(string):*/
-                        CLASS_TYPE_BTN="type_button",
-                        CLASS_TIME_SOUND_BTN="sound-duration_button",
-                        CLASS_KEY_WHITE="keys-white",
-                        CLASS_KEY_BLACK="keys-black",
-                        /*Patron(list int):*/
-                        PATRON=[2,3],//Patron de las teclas negras.
-                        /*dimensiones(int o floats):*/
-                        WIDTH_KEY_WHITE=29,
-                        WIDTH_KEY_BLACK=WIDTH_KEY_WHITE>>1,
-                        HEIGHT_KEY_BLACK=parseInt(HEIGHT_KEY/1.5),
-                        HEIGHT_KEY_BLACK_IF_MOUSEMOVE=parseInt(HEIGHT_KEY_BLACK/1.2),
-                        HEIGHT_KEY_BLACK_IF_ONCLICK=parseInt(HEIGHT_KEY_BLACK/1.3),
-                        KEY_X_INITIAL=16,
-                        KEY_Y_INITIAL=0,
-                        MAX_WIDTH_SCREEN=screen.availWidth-(WIDTH_KEY_WHITE<<1);
-                    
-                    let canvas_keys=document.getElementById("canvas-keys"),/*Nuestro contenedor para las teclas.*/
-                        /*Botones de configuración:*/
-                        type_sound_buttons=document.getElementsByClassName( CLASS_TYPE_BTN ),
-                        sound_duration_buttons=document.getElementsByClassName( CLASS_TIME_SOUND_BTN ),
-                    /*Variable dinámica para modificar las posiciones y dimensiones:*/
-                        key_x_inicial=KEY_X_INITIAL,
-                        width_piano=screen.availWidth,//Para cambiar el tamaño del piano de-acuerdo a las teclas. Nota: Se cambia al final del bucle de la teclas blancas.
-                        /*Arrays de teclas:*/
-                        keys=[""/*string elements white key*/,
-                              ""/*string elements black keys*/
-                            ],
-                        /*Nuestras teclas con sus posiciones y dimensiones.*/
-                        k_white=new position( KEY_X_INITIAL,KEY_Y_INITIAL, WIDTH_KEY_WHITE, HEIGHT_KEY ),/*Dimensión de la tecla blanca.*/
-                        k_black=new position(WIDTH_KEY_WHITE/1.25,k_white.y,WIDTH_KEY_BLACK,HEIGHT_KEY_BLACK),/*Dimensión de la tecla negra.*/
-                        raiz_doudecima_de_2=function(i){
-                            return Math.sqrt(Math.pow(2,(i+(!i%2)?((i)?2:0):1)/12));
-                        }
-                    ;
-                    
-                    //Ahora vamos con las teclas blancas.
-                    for ( let i=0,
-                              note=174.6141157165021,/*No suena la corneta cuando empezamos desde 27.5, pero desde la frecuencia 174.6141157165021 en adelante si suena.:)*/
-                              id_k_white=0,/*id de la tecla blanca.*/
-                              id_k_b=0,/*id de la tecla negra.*/
-                              i_patron=1,/*Se usará como indice del arrays constante: PATRON que determinará el patrón actual de las teclas.*/
-                              patron_actual=3,//Se usa como un contador que se reiniciará cuando llegue al patrón actual.
-                              if_create_key_black=true/*Para saber si debemos ignorar una posición y lograr el efecto de las teclas negras: do,re,mi,fa,sol, la,si, do*/
-                        
-                        ; i<CANTIDAD_TECLA; i++,id_k_white++,k_white.x+=31 ){
-                        
-                        /*Necesario para aumentar el largo del contenedor de las teclas y poder agregar más.*/
-                        if ( k_white.x>MAX_WIDTH_SCREEN ){
-                            width_piano+=k_white.width;
-                        }
-                        
-                        //Creamos la tecla blanca.
-                        keys[0]+='<rect class="'+CLASS_KEY_WHITE+'" id="key_number_'+id_k_white+'" fill="rgb(81.176471%,84.705882%,86.27451%)" stroke="black"'+
-                            ' width="'+k_white.width+'px" height="'+k_white.height+'px" x="'+k_white.x+'px" y="'+k_white.y+'px" onclick="click_key(this,'+i+',HEIGHT_KEY-10,HEIGHT_KEY);" onmousemove="mouse_move(this,\'95px\',HEIGHT_KEY+\'px\');"'+
-                            ' note="'+note+'"/>\n';
-                        
-                        //Este if es necesario para generar el patrón.
-                        if ( if_create_key_black ){
-                            //Creamos la tecla negra:
-                            keys[1]+='<rect class="'+CLASS_KEY_BLACK+'" id="key_black_'+id_k_b+'" fill="#0f0f0f" width="'+k_black.width+'px" height="'+k_black.height+'px"'+
-                                    ' x="'+(k_white.x+k_black.x)+'" y="'+k_white.y+'"'+
-                                    ' onclick="click_key(this,'+i+','+HEIGHT_KEY_BLACK_IF_ONCLICK+','+k_black.height+');" onmousemove="mouse_move(this,'+HEIGHT_KEY_BLACK_IF_MOUSEMOVE+'+\'px\','+k_black.height+');"'+
-                                    ' note="'+(note*=raiz_doudecima_de_2(i))+'"/>\n';
-                            //Para el patrón de las teclas negras:
-                            if ( patron_actual==PATRON[i_patron] ){
-                                i_patron=( i_patron )?0:1;
-                                patron_actual=0;
-                                if_create_key_black=false;
-                            }
-                            id_k_b++;//Aumentamos nuestro índice de la tecla negra.
-                            patron_actual++;
-                            i++;//Para no pasarnos de teclas aumentamos esta variable más.
-                        }else{
-                            if_create_key_black=true;
-                        }
-                        note*=raiz_doudecima_de_2(i);//Obtenemos la nota actual.
-                    }
-                    
-                    //Actualizamos el tamaño del piano.
-                    canvas_keys.style.width=width_piano+"px";//Le asignamos el width final al elemento padre.
-                    
-                    //He insertamos las teclas blancas y después las negras para que se vean en ese orden.
-                    canvas_keys.innerHTML+=keys[0]+keys[1];
-                    
-                    //Agregamos los eventos a los botones del tipo de sonido.
-                    for ( let btn of type_sound_buttons ){
-                        let id=btn.getAttribute("id");
-                        
-                        //Agregamos el evento al botón por medio de un atributo, NOTA: No sirve addEventListener con imágenes svg. Por lo que tienes que trabajar con el atributo directamente.
-                        btn.setAttribute("onclick","change_type_sound(this);");
-                        
-                        //Como el texto dentro del botón tiene casi el mismo id que nuestro botón, entonces aprovechamos eso y ponemos el evento de tal manera que se envíe el botón y no el texto.
-                        document.getElementById("text_"+id).setAttribute("onclick","change_type_sound(document.getElementById('"+id+"'));");
-                    }
-                    //Para activar por defecto el botón del triángulo.
-                    change_type_sound(document.getElementById("triangle"));
-                    
-                    for ( let btn of sound_duration_buttons ){
-                        let id=btn.getAttribute("id");
-                        
-                        //Agregamos el evento al botón por medio de un atributo, NOTA: No sirve addEventListener con imágenes svg. Por lo que tienes que trabajar con el atributo directamente.
-                        btn.setAttribute("onclick","change_sound_duration(this);");
-                        
-                        //Como el texto dentro del botón tiene casi el mismo id que nuestro botón, entonces aprovechamos eso y ponemos el evento de tal manera que se envíe el botón y no el texto.
-                        document.getElementById("text_"+id).setAttribute("onclick","change_sound_duration(document.getElementById('"+id+"'));");
-                    }
-                    change_sound_duration(document.getElementById("X1"));
-                };
-                function level_change(input_range){
-                    level_sound=input_range.value*0.1;
-                }
-                function click_key( this__,number_id,HEIGHT_INITIAL,HEIGHT_FINAL ){
-                    this__.style.height=HEIGHT_INITIAL+"px";
-                    setTimeout( function(){
-                        this__.style.height=HEIGHT_FINAL+"px";
-                    },400 );
-                    sound(parseFloat(this__.getAttribute("note")),type_sound,parseInt(recortar_cadena(id_time_note,1)));
-                }
-                function mouse_move(this__,HEIGHT_INITIAL,HEIGHT_FINAL){
-                    this__.style.height=HEIGHT_INITIAL;
-                    setTimeout( function(){
-                        this__.style.height=HEIGHT_FINAL;
-                    },400 );
-                }
-                function change_type_sound(this__){
-                
-                    //Desactivamos el botón anterior.
-                    document.getElementById(type_sound).setAttribute("fill","#000");
-                    
-                    //Activamos la selección actual.
-                    this__.setAttribute("fill","#888");
-                    
-                    type_sound=this__.getAttribute("id");
-                }
-                function change_sound_duration(this__){
-                    //Desactivamos al botón anterior.
-                    document.getElementById(id_time_note).setAttribute("fill","#444");
-                    
-                    //Activamos al actual.
-                    this__.setAttribute("fill","#fff");
-                    
-                    //Por último actualizamos el control
-                    id_time_note=this__.getAttribute("id");
-                }
-                function recortar_cadena(str__,indice){
-                    let str_actual="";
-                    for ( let i=indice; i<str__.length; i++ ){
-                        str_actual+=str__[i];
-                    }
-                    return str_actual;
-                }
-                
-                function sound(NOTE,OSC_TYPE,TIME){
-                    //Creamos nuestro oscilador.
-                    let osc=context_window_sound.createOscillator();
-                    //Cambiamos el tipo de frecuencia.
-                    osc.type=OSC_TYPE;//Admite: sine,square,sawtooth, triangle.
-                    //Actualizamos la nota.
-                    osc.frequency.value=NOTE;
 
-                    let ganancia=context_window_sound.createGain();
-                    ganancia.gain.value=level_sound;/*El volumen. Medio de 0-1. 1-maximo, 0-minimo*/
+<head>
+  <title>Piano.</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!--Tone js: https://tonejs.github.io/-->
+  <script src="https://cdn.jsdelivr.net/npm/tone@14.8.17/build/Tone.min.js"></script>
+  <link rel="stylesheet" href="./static/style.css">
+</head>
 
-                    let analizador=context_window_sound.createAnalyser();
-                    analizador.fftSize = 2048;
+<body onclick="start_tone();" onmouseup="synth.triggerRelease(0);if_sound=false;" onmousedown="if_sound=true;">
+  <main>
+    <!--Para dar la sensación de que todo hasta el título es parte del piano.-->
+    <div id="frame-piano">
+      <!--Nota: Es mejor colocar el titulo aqui(afuera de la etiqueta svg), porque ayuda a que sea mas reponsive la pagina web-->
+      <h2 id="title-main"><span class="align-center">Teclado DABL.</span></h2>
+      <div id="head-container">
+        <!--Generate with JavaScript-->
+      </div>
+      <table>
+        <caption align="top" title="Volumen">
+          <legend><label for="level-range">Volumen</label></legend>
+        </caption>
+        <tr>
+          <td>
+            <input type="range" min="-25" max="20" id="level-range" value=10 onchange="level_change(this);" onload="level_change(this);"/>
+          </td>
+        </tr>
+      </table>
+      <div id="frame-keys">
+        <svg id="canvas-keys">
+          <!--Generado por JavaScript-->
+        </svg>
+      </div>
+    </div>
+    <script type="text/javascript" src="./static/utils.js"></script>
+    <script>
+      const MAX_KEY = 50,
+        CLASS_TYPE_BTN = "type_button",
+        CLASS_TIME_SOUND_BTN = "sound-duration_button",
+        CLASS_KEY_WHITE = "keys-white",
+        CLASS_KEY_BLACK = "keys-black";
+        var the_do_scale=['A',"A#","B",'C',"C#",'D',"D#",'E','F',"F#",'G',"G#"];
+      //Iniciamos el sonido antes de usarlo.
+      async function start_tone() {
+        document.body.setAttribute("onclick","");
+        console.log("Iniciando sonido.");
+        document.start_sound=true;
+        await Tone.start();
+        is_first_down=false;//Importante, es para no detener la propagacion de evento
+      }
+      window.onload = () => {
+        let svg_f = new XMLHttpRequest();
+        svg_f.addEventListener("load", () => {
+          document.getElementById("head-container").insertAdjacentHTML("afterbegin", svg_f.responseText);
+          document.getElementById("frame-button").setAttribute("width",screen.width);
+          main();
+        });
+        svg_f.open("GET", "./media/piano head.svg");
+        svg_f.send();
+      };
+      function main() {
+        let canvas_keys = document.getElementById("canvas-keys"),/*Nuestro contenedor para las teclas.*/
+          /*Nuestras teclas con sus posiciones y dimensiones.*/
+          k_white = new position(16, 0, 29, 100),/*Dimensión de la tecla blanca.*/
+          k_black = new position(29 / 1.25, k_white.y, k_white.width>> 1, parseInt(k_white.height / 1.5))/*Dimensión de la tecla negra.*/
+        ;
+        let note=-1,//Para que el primer ciclo tenga 0.
+          i_key_white=0,
+          count_scale=1,
+          key_white="",
+          key_black="";//Para saber el total de teclas blancas.
+        let events=`onclick="click(this,event);" onmousemove="click_key(this,event);"
+              onmousedown="if_sound=true;click_key(this,event);" onmouseup="mouseup(this,event);"
+              onmouseout="mouseout(this,event);"`;
+        //Ahora vamos con las teclas blancas.
+        for (; i_key_white < MAX_KEY;) {
+          note++;
+          if (note==the_do_scale.length){
+            count_scale++;
+            note=0;
+          }
+          let key=document.createElement("rect");
+          //Creamos la tecla blanca.
+          if(the_do_scale[note][1]!='#'){
+            key_white+=`<rect class="${CLASS_KEY_WHITE}" fill="rgb(81.176471%,84.705882%,86.27451%)"
+              stroke="black" width="${k_white.width}" height="${k_white.height}" x="${k_white.x}" y="${k_white.y}"
+              ${events}
+              data-note="${the_do_scale[note]+count_scale}" data-height="${k_white.height}"/>`;
+            i_key_white++;
+            k_white.x+=31;
+          }else{
+            //Es un seminotono(tecla negra).
+            key_black+=`<rect class="${CLASS_KEY_BLACK}" fill="#0f0f0f" stroke="black"
+              width="${k_black.width}" height="${k_black.height}" x="${k_white.x + k_black.x}" y="${k_black.y}"
+              ${events}
+              data-note="${the_do_scale[note]}${count_scale}" data-height="${k_black.height}"/>`;
+          }
+        }
 
+        //Actualizamos el tamaño del piano.
+        canvas_keys.setAttribute("width",k_white.width*i_key_white);//Le asignamos el width final al elemento padre.
+        canvas_keys.setAttribute("height",k_white.height+10);//Le asignamos el width final al elemento padre.
+        canvas_keys.innerHTML=key_white+key_black;//Actualizamos el lienzo.
 
-                    //Asignamos el destino del sonido. Antes usaba: /*context_window_sound.destination*/
-                    osc.connect( ganancia );
-                    ganancia.connect(analizador);
-                    analizador.connect(context_window_sound.destination);
-                    //Iniciamos el sonido.
-                    osc.start(0);/*el numero significa retraso para llamar al start. Si se establece en 1 entonces esperarà a que se llame 2 veces para empezar a sonar.*/
-                    //Detenemos el sonido por TIME tiempo.
-                    osc.stop( context_window_sound.currentTime+(TIME*0.2) );
-                }
-            </script>
-            <br/>
-            <br/>
-            <br/>
-        </main>
-        <footer>
-            <hr/>
-            <span>Copyright (c) 2021 dabl03</span>
-        </footer>
-    </body>
+        //Agregamos los eventos a los botones del tipo de sonido.
+        let type_sound_buttons=document.getElementsByClassName(CLASS_TYPE_BTN);
+        for (let btn of type_sound_buttons) {
+          let id = btn.getAttribute("id");
+          //NOTA: No sirve addEventListener con imágenes svg.
+          btn.setAttribute("onclick", "change_type_sound(this);");
+          //Como el texto dentro del botón tiene casi el mismo id que nuestro botón, entonces aprovechamos eso y ponemos el evento de tal manera que se envíe el botón y no el texto.
+          document.getElementById("text_" + id).setAttribute("onclick", "change_type_sound(document.getElementById('" + id + "'));");
+        }
+        //Para activar por defecto el botón del triángulo.
+        change_type_sound(document.getElementById("triangle"));
+
+        //agregamos evento a los botones de duración:
+        let sound_duration_btns=document.getElementsByClassName(CLASS_TIME_SOUND_BTN)
+        for (let btn of sound_duration_btns) {
+          let id = btn.getAttribute("id");
+          //NOTA: No sirve addEventListener con imágenes svg.
+          btn.setAttribute("onclick", "change_sound_duration(this);");
+
+          //Como el texto dentro del botón tiene casi el mismo id que nuestro botón, entonces aprovechamos eso y ponemos el evento de tal manera que se envíe el botón y no el texto.
+          document.getElementById("text_" + id).setAttribute("onclick", "change_sound_duration(document.getElementById('" + id + "'));");
+        }
+        change_sound_duration(document.getElementById("X1"));
+      };
+    </script>
+    <br />
+    <br />
+    <br />
+  </main>
+  <footer>
+    <hr />
+    <span>Copyright (c) 2021 dabl03</span>
+  </footer>
+</body>
 </html>

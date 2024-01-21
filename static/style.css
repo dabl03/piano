@@ -1,0 +1,86 @@
+body{
+  background-color:rgb(40,40,50);
+  overflow:visible;
+  --WIDTH-SCREEN:99vw;
+  --BACKGROUND-COLOR-PIANO:#000;
+  
+}
+main{
+  background-color:white;
+  width:auto;
+}
+#title-main{
+  text-align:center;
+  color:#dbdbea;
+}
+.key-parent .key-piano{
+  width:50px;
+  height:100px;
+  background-color:white;
+  border:2px solid black;
+  margin-right:0px;
+}
+.text_svg_ {
+  font-style:normal;
+  font-variant:normal;
+  font-weight:normal;
+  font-stretch:normal;
+  font-family:sans-serif;
+  font-variant-ligatures:normal;
+  font-variant-caps:normal;
+  font-variant-numeric:normal;
+  font-variant-east-asian:normal;
+  white-space:pre;
+  fill-opacity:1;
+  stroke:none;
+}
+.text_svg_2{
+  fill:#fff;
+  stroke:#ff2009;
+  stroke-width:0.542631;
+}
+.sound-duration_button,.type_button{
+  stroke:#ff2009;
+  stroke-width:0.768793;
+  
+}
+.text_type_sound_2{
+  font-size:10.6667px;
+  line-height:1.25;
+  inline-size:78.9761;
+  fill:#ffffff;
+  stroke-width:0.665613
+}
+#frame-piano, #frame-button, #frame-keys, #title-main{
+  background-color:#000;/*For compatibility.*/
+  background-color:var(--BACKGROUND-COLOR-PIANO);
+}
+#frame-keys{
+  overflow-x:scroll;
+  width:99vw;
+  width:var(--WIDTH-SCREEN);
+  height:150px;
+  margin-top:0;
+}
+#canvas-keys{
+  background-color:#757584;
+  width:99vw;
+  width:var(--WIDTH-SCREEN);
+  height:120px;
+  margin-left:10px;
+  margin-right:10px;
+}
+footer{
+  color:#dddddd;
+  text-align:center;
+}
+label{
+  color:white;
+  font-weight: bold;
+}
+table{
+  border:2px solid gray;
+}
+.keys-black{
+  z-index:2;
+}
