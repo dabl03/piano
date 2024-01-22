@@ -12,6 +12,6 @@ jobs:
       - run: echo "Iniciando..."
       - name: Check out repository code
         uses: actions/checkout@v4
+      - run: echo "Creando servidor..."
       - name: Init server
-        run: echo "Creando servidor..."
-             python ${{ github.workspace }}/server.py
+        run: python "${{ github.workspace }}/server.py"
