@@ -5,6 +5,7 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
+      - run: python3 -m pip install Flask
       - run: python3 -c "from flask import Flask, request, Blueprint;"
       - run: python3 -c "print('hola mundo');"
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
