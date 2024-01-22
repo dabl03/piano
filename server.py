@@ -15,5 +15,4 @@ def index():
 	return "Error: Page no fount";
 
 if __name__=="__main__":
-	print(app.config['SERVER_NAME'])
-	app.run(host="daniel.com" if DEBUG else "https://dabl03.github.io/piano/", debug=DEBUG)
+	app.run(debug=DEBUG)
