@@ -17,3 +17,8 @@ jobs:
       - run: echo "Creando servidor..."
       - name: Init server
         run: python "${{ github.workspace }}/server.py"
+      - name: Deploy to GitHub Pages.
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          branch: page
+          folder: ./dist
