@@ -1,6 +1,3 @@
-from pymongo.mongo_client import MongoClient
-from pymongo.server_api import ServerApi
-
 from flask import Flask, request, Blueprint;
 app = Flask(__name__);
 
