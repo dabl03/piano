@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo Instalando flask...
-      - run: ${{ github.workspace }}
+      - run: ls ${{ github.workspace }}
       - name: install-Flask
         run: python3 -m pip install Flask
       - name: Iniciando servidor...
