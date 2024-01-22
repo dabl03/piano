@@ -6,6 +6,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo Instalando flask...
+      - name: Check out repository code
+        uses: actions/checkout@v4
       - run: ls ${{ github.workspace }}
       - name: install-Flask
         run: python3 -m pip install Flask
