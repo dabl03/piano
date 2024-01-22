@@ -6,9 +6,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo Instalando flask...
-      - run: ls
+      - run: ${{ github.workspace }}
       - name: install-Flask
         run: python3 -m pip install Flask
       - name: Iniciando servidor...
-        run: python3 ./server.py
+        run: python3 ${{ github.workspace }}/server.py
       - run: echo Se ha detenido el servidor.
