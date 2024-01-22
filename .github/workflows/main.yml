@@ -1,9 +1,13 @@
 name: page
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: [push]
+on:
+  push:
+    branches:
+      - main
 jobs:
-  Explore-GitHub-Actions:
+  build-and-deploy:
     runs-on: ubuntu-latest
+    environment: production
     steps:
       - run: echo "Iniciando..."
       - name: Check out repository code
