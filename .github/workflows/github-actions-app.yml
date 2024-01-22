@@ -6,6 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo Instalando flask...
+      - run: ls
       - name: install-Flask
         run: python3 -m pip install Flask
       - name: Iniciando servidor...
