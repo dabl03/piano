@@ -10,9 +10,7 @@ app.register_blueprint(media_pt);
 
 @app.route("/")
 def index():
-	with open("./index.html",'r') as html:
-		return html.read();
-	return "Error: Page no fount";
+	return render_template("index.html");
 
 if __name__=="__main__":
 	app.run(host="0.0.0.0",debug=DEBUG)
