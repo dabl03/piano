@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <!--Tone js: https://tonejs.github.io/-->
   <script src="https://cdn.jsdelivr.net/npm/tone@14.8.17/build/Tone.min.js"></script>
-  <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
+  <link rel="stylesheet" href="/static/style.css">
 </head>
 
 <body onclick="start_tone();" onmouseup="synth.triggerRelease(0);if_sound=false;" onmousedown="if_sound=true;">
@@ -34,7 +34,7 @@
         </svg>
       </div>
     </div>
-    <script type="text/javascript" src="url_for('static',filename='utils.js')"></script>
+    <script type="text/javascript" src="./static/utils.js"></script>
     <script>
       const MAX_KEY = 50,
         CLASS_TYPE_BTN = "type_button",
