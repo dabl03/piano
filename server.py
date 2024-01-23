@@ -11,6 +11,8 @@ app.register_blueprint(media_pt);
 @app.route("/")
 def index():
 	return render_template("index.html");
-
+@app.route("/ok")
+def is_of():
+	return "is okk";
 if __name__=="__main__":
 	app.run(host="0.0.0.0",debug=DEBUG)
