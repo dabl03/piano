@@ -1,6 +1,5 @@
 # piano 
 
-## ¿Como ejecutarlo?
+## Descripción
 
-Simple: Solo debes Ejecutar el archivo index.html y listo.
-
+Piano simple de 50 teclas.
