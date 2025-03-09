@@ -11,3 +11,4 @@ Piano simple de 50 teclas.
 - Grabar el sonido.
 - Usar el teclado para cada notas dependiendo del scroll.
 - Cambiar la figura del scroll a una que vaya mas al tema.
+- Guardar la configuración en localStorage

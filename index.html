@@ -31,7 +31,7 @@
               <input type="range" min="-25" max="20" id="level-range" value=10 onchange="level_change(this);" onload="level_change(this);"/>
             </td>
             <td><!--Mostrar notas-->
-              <input type="checkbox" id="view-note" class="input-checkbox" onclick="view_note(this);"/>
+              <input type="checkbox" id="view-note" class="input-checkbox" onclick="view_note(this.checked);" checked="true" />
             </td>
           </tr>
         </tbody>
@@ -68,6 +68,7 @@
         svg_f.open("GET", "./media/piano head.svg");
         svg_f.send();
       };
+      /**Aqui se crean las teclas y se coloca el texto con las notas.*/
       function main() {
         let canvas_keys = document.getElementById("canvas-keys"),/*Nuestro contenedor para las teclas.*/
           /*Nuestras teclas con sus posiciones y dimensiones.*/
@@ -141,9 +142,15 @@
         }
         change_sound_duration(document.getElementById("X1"));
       };
-      function view_note(which_element){
-        if (which_element.checked){
-        }else{
+      /**
+      * Vuelve el texto que indica la notas en invisible
+      * @param[in] is_visible(Boolean) Indica si las notas deben ser visibles o no.
+      */
+      function view_note(is_visible){
+        let for_hidden=document.getElementsByClassName("text-note");
+        let text_visible=(is_visible)?"visible":"hidden";
+        for (let el of for_hidden){
+          el.style.visibility=text_visible;
         }
       }
     </script>
