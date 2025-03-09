@@ -64,8 +64,9 @@ main{
 }
 #canvas-keys{
   background-color:#757584;
-  width:99vw;
-  width:var(--WIDTH-SCREEN);
+  width: auto;
+  /*width:99vw;
+  width:var(--WIDTH-SCREEN);/**Prevent all keys from being displayed*/
   height:120px;
   margin-left:10px;
   margin-right:10px;
@@ -78,9 +79,31 @@ label{
   color:white;
   font-weight: bold;
 }
-table{
-  border:2px solid gray;
-}
 .keys-black{
   z-index:2;
+}
+table{
+  text-align: center;
+}
+.img-circle{
+  border:2px solid red;
+  border-radius: 2px;
+}
+.input-checkbox[type="checkbox"]:before {
+  display: block;
+  background:gray;
+  width: 1em;
+  height: 1em;
+  border: 1.3px solid red;
+  content: "";/*Importante para que agarre estilo.*/
+}
+.input-checkbox[type="checkbox"]:checked:after {
+  bdisplay: block;
+  position: absolute;
+  width: 1em;
+  height: 1em;
+  border: 1.3px solid red;
+  transform:translate(0,-1em);/*Sin esto queda debajo del desactivado*/
+  content: "";
+  background: white;
 }

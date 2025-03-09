@@ -19,14 +19,22 @@
         <!--Generate with JavaScript-->
       </div>
       <table>
-        <caption align="top" title="Volumen">
-          <legend><label for="level-range">Volumen</label></legend>
-        </caption>
-        <tr>
-          <td>
-            <input type="range" min="-25" max="20" id="level-range" value=10 onchange="level_change(this);" onload="level_change(this);"/>
-          </td>
-        </tr>
+        <thead> align="top" title="Volumen">
+          <tr>
+            <th><label for="level-range">Volumen</label></th>
+            <th><label for="view-note">Mostrar notas:</label></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><!--Volumen-->
+              <input type="range" min="-25" max="20" id="level-range" value=10 onchange="level_change(this);" onload="level_change(this);"/>
+            </td>
+            <td><!--Mostrar notas-->
+              <input type="checkbox" id="view-note" class="input-checkbox" onclick="view_note(this);"/>
+            </td>
+          </tr>
+        </tbody>
       </table>
       <div id="frame-keys">
         <svg id="canvas-keys">
@@ -44,7 +52,7 @@
         var the_do_scale=['A',"A#","B",'C',"C#",'D',"D#",'E','F',"F#",'G',"G#"];
       //Iniciamos el sonido antes de usarlo.
       async function start_tone() {
-        document.body.setAttribute("onclick","");
+        document.body.removeAttribute("onclick");
         console.log("Iniciando sonido.");
         document.start_sound=true;
         await Tone.start();
@@ -64,13 +72,15 @@
         let canvas_keys = document.getElementById("canvas-keys"),/*Nuestro contenedor para las teclas.*/
           /*Nuestras teclas con sus posiciones y dimensiones.*/
           k_white = new position(16, 0, 29, 100),/*Dimensión de la tecla blanca.*/
-          k_black = new position(29 / 1.25, k_white.y, k_white.width>> 1, parseInt(k_white.height / 1.5))/*Dimensión de la tecla negra.*/
+          k_black = new position(k_white.width / 1.25, k_white.y, k_white.width>> 1, parseInt(k_white.height / 1.5)),/*Dimensión de la tecla negra.*/
+          center_white=k_white.width/3.2
         ;
-        let note=-1,//Para que el primer ciclo tenga 0.
+        let note=0,//Para que el primer ciclo tenga 0.
           i_key_white=0,
           count_scale=1,
-          key_white="",
-          key_black="";//Para saber el total de teclas blancas.
+          key_white='',
+          key_black='',
+          view_note='';
         let events=`onclick="click(this,event);" onmousemove="click_key(this,event);"
               onmousedown="if_sound=true;click_key(this,event);" onmouseup="mouseup(this,event);"
               onmouseout="mouseout(this,event);"`;
@@ -88,10 +98,13 @@
               stroke="black" width="${k_white.width}" height="${k_white.height}" x="${k_white.x}" y="${k_white.y}"
               ${events}
               data-note="${the_do_scale[note]+count_scale}" data-height="${k_white.height}"/>`;
+            view_note+=`<text class="text-note" x="${k_white.x+center_white}" y="${k_white.height-10}">${the_do_scale[note]}</text>`;
             i_key_white++;
             k_white.x+=31;
           }else{
             //Es un seminotono(tecla negra).
+            if (i_key_white+1>=MAX_KEY)//Evita que haya una tecla negra cuando no debería.
+              continue;
             key_black+=`<rect class="${CLASS_KEY_BLACK}" fill="#0f0f0f" stroke="black"
               width="${k_black.width}" height="${k_black.height}" x="${k_white.x + k_black.x}" y="${k_black.y}"
               ${events}
@@ -102,7 +115,7 @@
         //Actualizamos el tamaño del piano.
         canvas_keys.setAttribute("width",k_white.width*i_key_white);//Le asignamos el width final al elemento padre.
         canvas_keys.setAttribute("height",k_white.height+10);//Le asignamos el width final al elemento padre.
-        canvas_keys.innerHTML=key_white+key_black;//Actualizamos el lienzo.
+        canvas_keys.innerHTML=key_white+key_black+view_note;//Actualizamos el lienzo.
 
         //Agregamos los eventos a los botones del tipo de sonido.
         let type_sound_buttons=document.getElementsByClassName(CLASS_TYPE_BTN);
@@ -128,6 +141,11 @@
         }
         change_sound_duration(document.getElementById("X1"));
       };
+      function view_note(which_element){
+        if (which_element.checked){
+        }else{
+        }
+      }
     </script>
     <br />
     <br />

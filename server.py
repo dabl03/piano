@@ -1,6 +1,6 @@
 from flask import Flask, request, Blueprint;
 app = Flask(__name__);
-DEBUG=False;
+DEBUG=True;
 #Registramos una nueva url
 media_pt=Blueprint("media", __name__, static_folder="./media", static_url_path="/media");
 app.register_blueprint(media_pt);
